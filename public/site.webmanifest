@@ -1,0 +1,10 @@
+{
+  "name": "Tylina",
+  "short_name": "Tylina",
+  "description": "A document-first Typst desktop editor.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#fafafa",
+  "theme_color": "#fafafa",
+  "icons": [{ "src": "/app.png", "sizes": "1024x1024", "type": "image/png" }]
+}

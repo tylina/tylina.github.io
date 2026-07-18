@@ -1,0 +1,18 @@
+{
+  "name": "tylina-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "npm run build && node --test tests/site.test.mjs"
+  },
+  "devDependencies": {
+    "vite": "^8.1.5"
+  }
+}
