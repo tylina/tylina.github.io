@@ -6,25 +6,32 @@ const dist = new URL("../dist/", import.meta.url);
 const built = (path) => readFile(new URL(path, dist), "utf8");
 
 test("builds every public route with bilingual product copy", async () => {
-  const [home, download, privacy, notFound] = await Promise.all([
-    built("index.html"), built("download/index.html"), built("privacy/index.html"), built("404.html")
+  const [home, download, notFound] = await Promise.all([
+    built("index.html"), built("download/index.html"), built("404.html")
   ]);
   assert.match(home, /像写文档一样/);
   assert.match(home, /Write Typst/);
+  assert.match(home, /写作，从排版后的页面开始/);
+  assert.match(home, /Write from the typeset page/);
+  assert.match(home, /所见即所得/);
+  assert.match(home, /WYSIWYG, backed by Typst/);
   assert.match(home, /document-first, local-first Typst desktop editor/i);
   assert.match(home, /<html lang="en" data-lang="en">/);
   assert.match(home, /data-language-option="en"/);
   assert.match(home, /data-language-option="zh"/);
-  assert.ok(home.indexOf('class="mode-name">Source') < home.indexOf('class="mode-name">Preview'));
+  assert.ok(home.indexOf('data-lang-content="en">Source</span>') < home.indexOf('data-lang-content="en">Preview</span>'));
   assert.match(download, /SHA256SUMS\.txt/);
-  assert.match(privacy, /does not upload your documents/i);
+  assert.doesNotMatch(home, /href="\/privacy\//);
+  assert.doesNotMatch(download, /href="\/privacy\//);
   assert.match(notFound, /404/);
 });
 
 test("publishes the official brand assets and site metadata", async () => {
-  await Promise.all(["app.svg", "app.png", "favicon.svg", "robots.txt", "sitemap.xml", "site.webmanifest", ".nojekyll"].map((path) => access(new URL(path, dist))));
+  await Promise.all(["app.svg", "app.png", "favicon.png", "THIRD_PARTY_NOTICES.txt", "robots.txt", "sitemap.xml", "site.webmanifest", ".nojekyll"].map((path) => access(new URL(path, dist))));
   const home = await built("index.html");
   assert.match(home, /<img src="\/app\.png" alt="">/);
+  assert.match(home, /<link rel="icon" href="\/favicon\.png" type="image\/png" sizes="64x64">/);
+  assert.match(home, /data-lucide="globe-2"/);
 });
 
 test("does not claim that the proprietary desktop source is public", async () => {

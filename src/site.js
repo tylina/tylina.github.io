@@ -1,5 +1,12 @@
+import { createIcons, Globe2 } from "lucide";
+
 const languageKey = "tylina-language";
 const root = document.documentElement;
+
+createIcons({
+  icons: { Globe2 },
+  attrs: { width: 18, height: 18, "stroke-width": 1.8 },
+});
 
 function preferredLanguage() {
   const saved = localStorage.getItem(languageKey);
@@ -11,6 +18,9 @@ function setLanguage(language, persist = true) {
   root.dataset.lang = language;
   root.lang = language === "zh" ? "zh-CN" : "en";
   if (persist) localStorage.setItem(languageKey, language);
+  document.querySelectorAll("[data-language-toggle]").forEach((trigger) => {
+    trigger.setAttribute("aria-label", language === "zh" ? "选择语言" : "Choose language");
+  });
   document.querySelectorAll("[data-language-option]").forEach((option) => {
     option.setAttribute("aria-checked", String(option.dataset.languageOption === language));
   });
