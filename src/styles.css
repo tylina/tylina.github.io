@@ -357,6 +357,8 @@ h2 { margin-bottom: 0; font-family: var(--serif); font-size: clamp(38px, 5vw, 60
 }
 .download-link svg { width: 13px; height: 13px; }
 .download-link:hover { transform: translateY(-1px); border-color: #9eb2c4; background: white; color: var(--accent-dark); }
+.platform .platform-note { margin-top: 13px; color: #687886; font-size: 12px; line-height: 1.65; }
+.platform-note a { color: var(--accent-dark); font-weight: 650; text-underline-offset: 3px; }
 .checksum-link { display: inline-flex; align-items: center; gap: 5px; font-weight: 650; text-underline-offset: 3px; }
 .checksum-link svg { width: 14px; height: 14px; }
 .notice { margin-top: 30px; padding: 18px 20px; border-left: 3px solid #c78b42; background: #fff7e8; color: #61471f; font-size: 14px; }

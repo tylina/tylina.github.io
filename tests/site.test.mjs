@@ -37,6 +37,9 @@ test("builds every public route with bilingual product copy", async () => {
   for (const asset of releaseAssets) {
     assert.match(download, new RegExp(`releases/download/v0\\.1\\.0/${asset.replaceAll(".", "\\.")}`));
   }
+  assert.match(download, /support\.apple\.com\/guide\/mac-help\/mh40617\/mac/);
+  assert.match(download, /System Settings → Privacy &amp; Security/);
+  assert.match(download, /系统设置 → 隐私与安全性/);
   assert.doesNotMatch(download, /\.blockmap/);
   assert.doesNotMatch(home, /href="\/privacy\//);
   assert.doesNotMatch(download, /href="\/privacy\//);
