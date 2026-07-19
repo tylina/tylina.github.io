@@ -339,8 +339,26 @@ h2 { margin-bottom: 0; font-family: var(--serif); font-size: clamp(38px, 5vw, 60
 .platform { display: grid; align-items: start; gap: 28px; grid-template-columns: 150px 1fr; padding: 27px 0; border-bottom: 1px solid var(--line-strong); }
 .platform h3 { margin: 0; font-size: 18px; }
 .platform p { margin: 0; color: var(--muted); font-size: 14px; }
-.format-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
-.format-tags span { padding: 3px 8px; border: 1px solid var(--line-strong); border-radius: 7px; background: rgb(255 255 255 / 50%); color: #536169; font-family: var(--mono); font-size: 11px; }
+.download-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.download-link {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: rgb(255 255 255 / 58%);
+  color: #536169;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-decoration: none;
+  transition: transform 150ms ease, border-color 150ms ease, background 150ms ease, color 150ms ease;
+}
+.download-link svg { width: 13px; height: 13px; }
+.download-link:hover { transform: translateY(-1px); border-color: #9eb2c4; background: white; color: var(--accent-dark); }
+.checksum-link { display: inline-flex; align-items: center; gap: 5px; font-weight: 650; text-underline-offset: 3px; }
+.checksum-link svg { width: 14px; height: 14px; }
 .notice { margin-top: 30px; padding: 18px 20px; border-left: 3px solid #c78b42; background: #fff7e8; color: #61471f; font-size: 14px; }
 .error-page { display: grid; min-height: 100vh; place-items: center; padding: 32px; }
 .error-content { max-width: 610px; text-align: center; }

@@ -1,10 +1,10 @@
-import { createIcons, Globe2 } from "lucide";
+import { createIcons, Download, Globe2 } from "lucide";
 
 const languageKey = "tylina-language";
 const root = document.documentElement;
 
 createIcons({
-  icons: { Globe2 },
+  icons: { Download, Globe2 },
   attrs: { width: 18, height: 18, "stroke-width": 1.8 },
 });
 
