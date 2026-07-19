@@ -9,8 +9,8 @@ test("builds every public route with bilingual product copy", async () => {
   const [home, download, notFound] = await Promise.all([
     built("index.html"), built("download/index.html"), built("404.html")
   ]);
-  assert.match(home, /像写文档一样/);
-  assert.match(home, /Write Typst/);
+  assert.match(home, /Typst，<br>所见即所得。/);
+  assert.match(home, /WYSIWYG<br>for Typst\./);
   assert.match(home, /写作，从排版后的页面开始/);
   assert.match(home, /Write from the typeset page/);
   assert.match(home, /所见即所得/);
