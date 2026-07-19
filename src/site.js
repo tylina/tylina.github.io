@@ -4,22 +4,67 @@ const root = document.documentElement;
 function preferredLanguage() {
   const saved = localStorage.getItem(languageKey);
   if (saved === "zh" || saved === "en") return saved;
-  return navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en";
+  return "en";
 }
 
 function setLanguage(language, persist = true) {
   root.dataset.lang = language;
   root.lang = language === "zh" ? "zh-CN" : "en";
   if (persist) localStorage.setItem(languageKey, language);
-  document.querySelectorAll("[data-language-toggle]").forEach((button) => {
-    button.setAttribute("aria-label", language === "zh" ? "Switch to English" : "切换到中文");
+  document.querySelectorAll("[data-language-option]").forEach((option) => {
+    option.setAttribute("aria-checked", String(option.dataset.languageOption === language));
   });
 }
 
 setLanguage(preferredLanguage(), false);
 
-document.querySelectorAll("[data-language-toggle]").forEach((button) => {
-  button.addEventListener("click", () => setLanguage(root.dataset.lang === "zh" ? "en" : "zh"));
+function closeLanguagePicker(picker, restoreFocus = false) {
+  const trigger = picker.querySelector("[data-language-toggle]");
+  const menu = picker.querySelector("[data-language-menu]");
+  menu.hidden = true;
+  trigger.setAttribute("aria-expanded", "false");
+  if (restoreFocus) trigger.focus();
+}
+
+document.querySelectorAll("[data-language-picker]").forEach((picker) => {
+  const trigger = picker.querySelector("[data-language-toggle]");
+  const menu = picker.querySelector("[data-language-menu]");
+  const options = [...picker.querySelectorAll("[data-language-option]")];
+
+  trigger.addEventListener("click", () => {
+    const willOpen = menu.hidden;
+    document.querySelectorAll("[data-language-picker]").forEach((otherPicker) => {
+      if (otherPicker !== picker) closeLanguagePicker(otherPicker);
+    });
+    menu.hidden = !willOpen;
+    trigger.setAttribute("aria-expanded", String(willOpen));
+    if (willOpen) {
+      (options.find((option) => option.dataset.languageOption === root.dataset.lang) ?? options[0]).focus();
+    }
+  });
+
+  options.forEach((option, index) => {
+    option.addEventListener("click", () => {
+      setLanguage(option.dataset.languageOption);
+      closeLanguagePicker(picker, true);
+    });
+    option.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowDown" && event.key !== "ArrowUp") return;
+      event.preventDefault();
+      const direction = event.key === "ArrowDown" ? 1 : -1;
+      options[(index + direction + options.length) % options.length].focus();
+    });
+  });
+
+  picker.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeLanguagePicker(picker, true);
+  });
+});
+
+document.addEventListener("pointerdown", (event) => {
+  document.querySelectorAll("[data-language-picker]").forEach((picker) => {
+    if (!picker.contains(event.target)) closeLanguagePicker(picker);
+  });
 });
 
 document.querySelectorAll("[data-current-year]").forEach((node) => {

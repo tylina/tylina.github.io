@@ -12,6 +12,10 @@ test("builds every public route with bilingual product copy", async () => {
   assert.match(home, /像写文档一样/);
   assert.match(home, /Write Typst/);
   assert.match(home, /document-first, local-first Typst desktop editor/i);
+  assert.match(home, /<html lang="en" data-lang="en">/);
+  assert.match(home, /data-language-option="en"/);
+  assert.match(home, /data-language-option="zh"/);
+  assert.ok(home.indexOf('class="mode-name">Source') < home.indexOf('class="mode-name">Preview'));
   assert.match(download, /SHA256SUMS\.txt/);
   assert.match(privacy, /does not upload your documents/i);
   assert.match(notFound, /404/);
@@ -19,6 +23,8 @@ test("builds every public route with bilingual product copy", async () => {
 
 test("publishes the official brand assets and site metadata", async () => {
   await Promise.all(["app.svg", "app.png", "favicon.svg", "robots.txt", "sitemap.xml", "site.webmanifest", ".nojekyll"].map((path) => access(new URL(path, dist))));
+  const home = await built("index.html");
+  assert.match(home, /<img src="\/app\.png" alt="">/);
 });
 
 test("does not claim that the proprietary desktop source is public", async () => {
