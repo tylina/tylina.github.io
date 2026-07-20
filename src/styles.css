@@ -168,6 +168,7 @@ h1 {
   letter-spacing: -0.052em;
   line-height: 1.03;
 }
+html[data-lang="zh"] .hero h1 { line-height: 1.16; }
 .hero-lead { max-width: 610px; margin-bottom: 30px; color: var(--muted); font-size: clamp(18px, 2vw, 21px); line-height: 1.72; }
 .hero-actions, .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .button {
