@@ -84,6 +84,7 @@ html[data-lang="en"] [data-lang-content="en"] { display: revert; }
 .site-nav { display: flex; align-items: center; gap: 25px; margin-left: auto; }
 .site-nav a, .footer-nav a { color: var(--muted); font-size: 14px; font-weight: 590; text-decoration: none; }
 .site-nav a:hover, .footer-nav a:hover { color: var(--ink); }
+.site-nav a[aria-current="page"] { color: var(--ink); }
 .language-picker { position: relative; }
 .language-trigger {
   display: inline-grid;
@@ -330,6 +331,26 @@ h2 { margin-bottom: 0; font-family: var(--serif); font-size: clamp(38px, 5vw, 60
 .page-hero { padding-block: 92px 66px; border-bottom: 1px solid var(--line); }
 .page-hero h1 { max-width: 900px; margin-bottom: 20px; font-size: clamp(44px, 6vw, 72px); }
 .page-hero p { max-width: 700px; margin-bottom: 0; color: var(--muted); font-size: 18px; }
+.demo-section { padding-block: 64px 28px; }
+.demo-showcase { margin: 0; }
+.demo-media {
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: 18px;
+  background: white;
+  box-shadow: var(--shadow);
+}
+.demo-media img { width: 100%; height: auto; }
+.demo-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 18px 4px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+.demo-caption a { color: var(--accent-dark); font-weight: 650; text-underline-offset: 3px; white-space: nowrap; }
+.demo-download-cta { padding-top: 68px; padding-bottom: 86px; }
 .release-panel { display: grid; gap: 45px; grid-template-columns: minmax(0, 0.72fr) minmax(360px, 1.28fr); padding-block: 70px 100px; }
 .release-summary { align-self: start; padding: 34px; border: 1px solid var(--line-strong); border-radius: 16px; background: var(--paper); }
 .release-version { margin-bottom: 18px; color: var(--accent-dark); font-family: var(--mono); font-size: 13px; font-weight: 700; }
@@ -404,6 +425,10 @@ h2 { margin-bottom: 0; font-family: var(--serif); font-size: clamp(38px, 5vw, 60
   .footer-inner { align-items: start; }
   .footer-nav { justify-content: flex-start; }
   .page-hero { padding-block: 64px 50px; }
+  .demo-section { padding-block: 38px 8px; }
+  .demo-media { border-radius: 12px; }
+  .demo-caption { display: grid; gap: 8px; margin-inline: 2px; }
+  .demo-download-cta { padding-block: 54px 68px; }
   .release-panel { padding-block: 50px 78px; }
   .platform { gap: 9px; grid-template-columns: 1fr; }
 }

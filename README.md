@@ -16,6 +16,7 @@ Run `npm test` before publishing. The site is a static Vite build; `main` is dep
 ## Public links
 
 - Website: <https://tylina.github.io/>
+- Demo: <https://tylina.github.io/demo/>
 - Downloads: <https://github.com/tylina/tylina-issues/releases>
 - Feedback: <https://github.com/tylina/tylina-issues/issues/new/choose>
 

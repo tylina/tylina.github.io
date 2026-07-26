@@ -6,8 +6,8 @@ const dist = new URL("../dist/", import.meta.url);
 const built = (path) => readFile(new URL(path, dist), "utf8");
 
 test("builds every public route with bilingual product copy", async () => {
-  const [home, download, notFound] = await Promise.all([
-    built("index.html"), built("download/index.html"), built("404.html")
+  const [home, demo, download, notFound] = await Promise.all([
+    built("index.html"), built("demo/index.html"), built("download/index.html"), built("404.html")
   ]);
   assert.match(home, /Typst，<br>所见即所得。/);
   assert.match(home, /WYSIWYG<br>for Typst\./);
@@ -19,7 +19,13 @@ test("builds every public route with bilingual product copy", async () => {
   assert.match(home, /<html lang="en" data-lang="en">/);
   assert.match(home, /data-language-option="en"/);
   assert.match(home, /data-language-option="zh"/);
+  assert.match(home, /href="\/demo\/">Demo<\/a>/);
   assert.ok(home.indexOf('data-lang-content="en">Source</span>') < home.indexOf('data-lang-content="en">Preview</span>'));
+  assert.match(demo, /看看文档优先的编辑体验。/);
+  assert.match(demo, /See document-first editing in motion\./);
+  assert.match(demo, /<img src="\/demo\.gif" alt="" width="1440" height="824"/);
+  assert.match(demo, /href="\/demo\/" aria-current="page">Demo<\/a>/);
+  assert.match(download, /href="\/demo\/">Demo<\/a>/);
   assert.match(download, /SHA256SUMS\.txt/);
   const releaseAssets = [
     "Tylina-0.2.0-mac-arm64.dmg",
@@ -49,7 +55,7 @@ test("builds every public route with bilingual product copy", async () => {
 });
 
 test("publishes the official brand assets and site metadata", async () => {
-  await Promise.all(["app.svg", "app.png", "favicon.png", "THIRD_PARTY_NOTICES.txt", "robots.txt", "sitemap.xml", "site.webmanifest", ".nojekyll"].map((path) => access(new URL(path, dist))));
+  await Promise.all(["app.svg", "app.png", "demo.gif", "favicon.png", "THIRD_PARTY_NOTICES.txt", "robots.txt", "sitemap.xml", "site.webmanifest", ".nojekyll"].map((path) => access(new URL(path, dist))));
   const home = await built("index.html");
   assert.match(home, /<img src="\/app\.png" alt="">/);
   assert.match(home, /<link rel="icon" href="\/favicon\.png" type="image\/png" sizes="64x64">/);

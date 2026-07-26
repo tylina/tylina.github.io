@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tylina Demo — Document-first Typst editing</title>
+    <meta name="description" content="Watch Tylina edit a real Typst document directly on the typeset page.">
+    <meta name="theme-color" content="#fafafa">
+    <link rel="canonical" href="https://tylina.github.io/demo/">
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
+    <link rel="apple-touch-icon" href="/app.png">
+    <link rel="stylesheet" href="/src/styles.css">
+    <script type="module" src="/src/site.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main"><span data-lang-content="zh">跳到正文</span><span data-lang-content="en">Skip to content</span></a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="/" aria-label="Tylina home"><img src="/app.png" alt=""><span>Tylina</span></a>
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="/#writing"><span data-lang-content="zh">写作</span><span data-lang-content="en">Writing</span></a>
+          <a href="/#features"><span data-lang-content="zh">功能</span><span data-lang-content="en">Features</span></a>
+          <a href="/demo/" aria-current="page">Demo</a>
+          <a href="https://github.com/tylina/tylina-issues/issues/new/choose"><span data-lang-content="zh">反馈</span><span data-lang-content="en">Feedback</span></a>
+        </nav>
+        <div class="language-picker" data-language-picker>
+          <button class="language-trigger" type="button" data-language-toggle aria-haspopup="menu" aria-expanded="false" aria-label="Choose language"><i data-lucide="globe-2" aria-hidden="true"></i></button>
+          <div class="language-menu" data-language-menu role="menu" aria-label="Language" hidden>
+            <button type="button" role="menuitemradio" data-language-option="en"><span>English</span><span class="language-check" aria-hidden="true">✓</span></button>
+            <button type="button" role="menuitemradio" data-language-option="zh"><span>简体中文</span><span class="language-check" aria-hidden="true">✓</span></button>
+          </div>
+        </div>
+        <a class="header-download" href="/download/"><span data-lang-content="zh">下载</span><span data-lang-content="en">Download</span></a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container">
+          <p class="eyebrow"><span data-lang-content="zh">产品演示</span><span data-lang-content="en">Product demo</span></p>
+          <h1><span data-lang-content="zh">看看文档优先的编辑体验。</span><span data-lang-content="en">See document-first editing in motion.</span></h1>
+          <p><span data-lang-content="zh">直接面对排版后的 Typst 页面，在真实文档中点击、选择和编辑；需要时，源码始终触手可及。</span><span data-lang-content="en">Work directly on the typeset Typst page: click, select, and edit a real document, with source always within reach.</span></p>
+        </div>
+      </section>
+
+      <section class="container demo-section">
+        <figure class="demo-showcase" aria-labelledby="demo-caption">
+          <div class="demo-media">
+            <img src="/demo.gif" alt="" width="1440" height="824" fetchpriority="high">
+          </div>
+          <figcaption class="demo-caption" id="demo-caption">
+            <span data-lang-content="zh">Tylina 0.2.0 的真实操作录屏；开发预览期间界面仍可能继续调整。</span>
+            <span data-lang-content="en">A real Tylina 0.2.0 session. The interface may continue to evolve during the development preview.</span>
+            <a href="/demo.gif"><span data-lang-content="zh">查看原始尺寸</span><span data-lang-content="en">View full size</span></a>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="container cta demo-download-cta">
+        <div>
+          <h2><span data-lang-content="zh">在自己的文档中试试。</span><span data-lang-content="en">Try it with your own document.</span></h2>
+          <p><span data-lang-content="zh">Tylina 0.2.0 支持 macOS、Windows 与 Linux。</span><span data-lang-content="en">Tylina 0.2.0 is available for macOS, Windows, and Linux.</span></p>
+        </div>
+        <div class="cta-actions">
+          <a class="button button-primary" href="/download/"><span data-lang-content="zh">下载 Tylina</span><span data-lang-content="en">Download Tylina</span></a>
+          <a class="button" href="https://github.com/tylina/tylina-issues/issues/new/choose"><span data-lang-content="zh">提交反馈</span><span data-lang-content="en">Send feedback</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div><div class="footer-brand"><img src="/app.png" alt=""><span>Tylina</span></div><p class="copyright">Copyright © <span data-current-year>2026</span> OrangeX4. All rights reserved.</p></div>
+        <nav class="footer-nav" aria-label="Footer navigation"><a href="/"><span data-lang-content="zh">首页</span><span data-lang-content="en">Home</span></a><a href="/download/"><span data-lang-content="zh">下载</span><span data-lang-content="en">Download</span></a><a href="https://github.com/tylina/tylina-issues"><span data-lang-content="zh">反馈</span><span data-lang-content="en">Feedback</span></a></nav>
+      </div>
+    </footer>
+  </body>
+</html>

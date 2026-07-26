@@ -6,6 +6,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         home: resolve(import.meta.dirname, "index.html"),
+        demo: resolve(import.meta.dirname, "demo/index.html"),
         download: resolve(import.meta.dirname, "download/index.html"),
         notFound: resolve(import.meta.dirname, "404.html")
       }

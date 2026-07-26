@@ -4,7 +4,7 @@
 2. Push this repository's `main` branch.
 3. In **Settings → Pages**, choose **GitHub Actions** as the source.
 4. Wait for the **Deploy website** workflow to finish.
-5. Check `/`, `/download/`, the language switch, and links to `tylina-issues`.
+5. Check `/`, `/demo/`, `/download/`, the language switch, and links to `tylina-issues`.
 
 The workflow builds a static site and uploads only `dist/`. The repository contains the public website, not the proprietary Tylina application source.
 
