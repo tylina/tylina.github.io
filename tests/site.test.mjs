@@ -22,21 +22,23 @@ test("builds every public route with bilingual product copy", async () => {
   assert.ok(home.indexOf('data-lang-content="en">Source</span>') < home.indexOf('data-lang-content="en">Preview</span>'));
   assert.match(download, /SHA256SUMS\.txt/);
   const releaseAssets = [
-    "Tylina-0.1.0-mac-arm64.dmg",
-    "Tylina-0.1.0-mac-arm64.zip",
-    "Tylina-0.1.0-mac-x64.dmg",
-    "Tylina-0.1.0-mac-x64.zip",
-    "Tylina-0.1.0-win-arm64.exe",
-    "Tylina-0.1.0-win-x64.exe",
-    "Tylina-0.1.0-linux-arm64.AppImage",
-    "Tylina-0.1.0-linux-arm64.deb",
-    "Tylina-0.1.0-linux-x86_64.AppImage",
-    "Tylina-0.1.0-linux-amd64.deb",
+    "Tylina-0.2.0-mac-arm64.dmg",
+    "Tylina-0.2.0-mac-arm64.zip",
+    "Tylina-0.2.0-mac-x64.dmg",
+    "Tylina-0.2.0-mac-x64.zip",
+    "Tylina-0.2.0-win-arm64.exe",
+    "Tylina-0.2.0-win-x64.exe",
+    "Tylina-0.2.0-linux-arm64.AppImage",
+    "Tylina-0.2.0-linux-arm64.deb",
+    "Tylina-0.2.0-linux-x86_64.AppImage",
+    "Tylina-0.2.0-linux-amd64.deb",
     "SHA256SUMS.txt",
   ];
   for (const asset of releaseAssets) {
-    assert.match(download, new RegExp(`releases/download/v0\\.1\\.0/${asset.replaceAll(".", "\\.")}`));
+    assert.match(download, new RegExp(`releases/download/v0\\.2\\.0/${asset.replaceAll(".", "\\.")}`));
   }
+  assert.doesNotMatch(home, /0\.1\.0/);
+  assert.doesNotMatch(download, /0\.1\.0/);
   assert.match(download, /support\.apple\.com\/guide\/mac-help\/mh40617\/mac/);
   assert.match(download, /System Settings → Privacy &amp; Security/);
   assert.match(download, /系统设置 → 隐私与安全性/);
