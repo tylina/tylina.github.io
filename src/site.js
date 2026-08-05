@@ -1,10 +1,51 @@
-import { createIcons, Download, Globe2 } from "lucide";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  BadgeCheck,
+  BookOpenCheck,
+  BrainCircuit,
+  Download,
+  FilePenLine,
+  FileSearch,
+  Globe2,
+  LayoutTemplate,
+  ListChecks,
+  MousePointerClick,
+  NotebookPen,
+  Presentation,
+  ScanText,
+  Settings2,
+  Sparkles,
+  WandSparkles,
+  createIcons,
+} from "lucide";
 
 const languageKey = "tylina-language";
 const root = document.documentElement;
 
 createIcons({
-  icons: { Download, Globe2 },
+  icons: {
+    ArrowLeft,
+    ArrowRight,
+    ArrowUpRight,
+    BadgeCheck,
+    BookOpenCheck,
+    BrainCircuit,
+    Download,
+    FilePenLine,
+    FileSearch,
+    Globe2,
+    LayoutTemplate,
+    ListChecks,
+    MousePointerClick,
+    NotebookPen,
+    Presentation,
+    ScanText,
+    Settings2,
+    Sparkles,
+    WandSparkles,
+  },
   attrs: { width: 18, height: 18, "stroke-width": 1.8 },
 });
 
@@ -79,4 +120,99 @@ document.addEventListener("pointerdown", (event) => {
 
 document.querySelectorAll("[data-current-year]").forEach((node) => {
   node.textContent = String(new Date().getFullYear());
+});
+
+function selectPreview(buttons, buttonKey, panels, panelKey, value) {
+  buttons.forEach((button) => {
+    button.setAttribute("aria-selected", String(button.dataset[buttonKey] === value));
+  });
+  panels.forEach((panel) => {
+    panel.hidden = panel.dataset[panelKey] !== value;
+  });
+}
+
+document.querySelectorAll("[data-editor-preview]").forEach((preview) => {
+  const buttons = [...preview.querySelectorAll("[data-editor-mode]")];
+  const copies = [...preview.querySelectorAll("[data-editor-copy]")];
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      preview.dataset.mode = button.dataset.editorMode;
+      selectPreview(buttons, "editorMode", copies, "editorCopy", button.dataset.editorMode);
+    });
+  });
+});
+
+const aiButtons = [...document.querySelectorAll("[data-ai-task]")];
+const aiPanels = [...document.querySelectorAll("[data-ai-panel]")];
+const aiPreviews = [...document.querySelectorAll("[data-agent-preview]")];
+aiButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    selectPreview(aiButtons, "aiTask", aiPanels, "aiPanel", button.dataset.aiTask);
+    aiPreviews.forEach((preview) => {
+      preview.dataset.aiState = button.dataset.aiTask;
+    });
+  });
+});
+
+document.querySelectorAll("[data-slide-studio]").forEach((studio) => {
+  const buttons = [...studio.querySelectorAll("[data-slide-src]")];
+  const mainImage = studio.querySelector("[data-slide-main]");
+  const current = studio.querySelector("[data-slide-current]");
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      buttons.forEach((candidate) => {
+        candidate.setAttribute("aria-selected", String(candidate === button));
+      });
+      mainImage.src = button.dataset.slideSrc;
+      current.textContent = button.dataset.slideNumber;
+    });
+  });
+});
+
+document.querySelectorAll("[data-use-carousel]").forEach((carousel) => {
+  const cards = [...carousel.querySelectorAll("[data-scene]")];
+  const previous = document.querySelector("[data-carousel-prev]");
+  const next = document.querySelector("[data-carousel-next]");
+  const count = document.querySelector("[data-carousel-count]");
+  let activeIndex = 0;
+  let updateQueued = false;
+
+  function updateControls() {
+    const viewportCenter = carousel.getBoundingClientRect().left + carousel.clientWidth / 2;
+    activeIndex = cards.reduce((best, card, index) => {
+      const cardRect = card.getBoundingClientRect();
+      const bestRect = cards[best].getBoundingClientRect();
+      const cardCenter = cardRect.left + cardRect.width / 2;
+      const bestCenter = bestRect.left + bestRect.width / 2;
+      return Math.abs(cardCenter - viewportCenter) < Math.abs(bestCenter - viewportCenter) ? index : best;
+    }, 0);
+    count.textContent = `${String(activeIndex + 1).padStart(2, "0")} / ${String(cards.length).padStart(2, "0")}`;
+    previous.disabled = activeIndex === 0;
+    next.disabled = activeIndex === cards.length - 1;
+  }
+
+  function goTo(index) {
+    const targetIndex = Math.max(0, Math.min(cards.length - 1, index));
+    const carouselLeft = carousel.getBoundingClientRect().left;
+    const targetLeft = cards[targetIndex].getBoundingClientRect().left;
+    carousel.scrollTo({ left: carousel.scrollLeft + targetLeft - carouselLeft, behavior: "smooth" });
+  }
+
+  previous.addEventListener("click", () => goTo(activeIndex - 1));
+  next.addEventListener("click", () => goTo(activeIndex + 1));
+  carousel.addEventListener("keydown", (event) => {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    event.preventDefault();
+    goTo(activeIndex + (event.key === "ArrowRight" ? 1 : -1));
+  });
+  carousel.addEventListener("scroll", () => {
+    if (updateQueued) return;
+    updateQueued = true;
+    requestAnimationFrame(() => {
+      updateQueued = false;
+      updateControls();
+    });
+  }, { passive: true });
+  window.addEventListener("resize", updateControls, { passive: true });
+  updateControls();
 });

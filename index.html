@@ -3,31 +3,32 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tylina — WYSIWYG for Typst</title>
-    <meta name="description" content="Tylina is a document-first, local-first Typst desktop editor. Write directly on the typeset page and switch to the source editor when you need it.">
+    <title>Tylina — WYSIWYG and AI-native Typst</title>
+    <meta name="description" content="Tylina is a document-first, AI-native Typst desktop editor for writing, slides, and beautifully typeset work.">
     <meta name="theme-color" content="#fafafa">
     <link rel="canonical" href="https://tylina.github.io/">
     <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
     <link rel="apple-touch-icon" href="/app.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Tylina — WYSIWYG for Typst">
-    <meta property="og:description" content="A document-first, local-first Typst desktop editor.">
+    <meta property="og:title" content="Tylina — WYSIWYG and AI-native Typst">
+    <meta property="og:description" content="Edit the typeset page, work with your own AI agents, and create presentation-ready slides.">
     <meta property="og:url" content="https://tylina.github.io/">
     <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="/src/styles.css">
     <script type="module" src="/src/site.js"></script>
   </head>
-  <body>
+  <body class="home-page">
     <a class="skip-link" href="#main"><span data-lang-content="zh">跳到正文</span><span data-lang-content="en">Skip to content</span></a>
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="/" aria-label="Tylina home"><img src="/app.png" alt=""><span>Tylina</span></a>
         <nav class="site-nav" aria-label="Primary navigation">
-          <a href="#writing"><span data-lang-content="zh">写作</span><span data-lang-content="en">Writing</span></a>
-          <a href="#features"><span data-lang-content="zh">功能</span><span data-lang-content="en">Features</span></a>
+          <a href="#wysiwyg"><span data-lang-content="zh">所见即所得</span><span data-lang-content="en">WYSIWYG</span></a>
+          <a href="#ai"><span data-lang-content="zh">AI 原生</span><span data-lang-content="en">AI native</span></a>
+          <a href="#slides">Slides</a>
+          <a href="#scenes"><span data-lang-content="zh">使用场景</span><span data-lang-content="en">Use cases</span></a>
           <a href="/demo/">Demo</a>
-          <a href="https://github.com/tylina/tylina-issues/issues/new/choose"><span data-lang-content="zh">反馈</span><span data-lang-content="en">Feedback</span></a>
         </nav>
         <div class="language-picker" data-language-picker>
           <button class="language-trigger" type="button" data-language-toggle aria-haspopup="menu" aria-expanded="false" aria-label="Choose language"><i data-lucide="globe-2" aria-hidden="true"></i></button>
@@ -43,14 +44,17 @@
     <main id="main">
       <section class="hero container">
         <div class="hero-copy">
-          <p class="eyebrow"><span data-lang-content="zh">0.3.0 开发预览版</span><span data-lang-content="en">0.3.0 development preview</span></p>
+          <p class="eyebrow"><span data-lang-content="zh">Tylina 0.3.0 · 开发预览版</span><span data-lang-content="en">Tylina 0.3.0 · Development preview</span></p>
           <h1><span data-lang-content="zh">Typst，<br>所见即所得。</span><span data-lang-content="en">WYSIWYG<br>for Typst.</span></h1>
-          <p class="hero-lead"><span data-lang-content="zh">Tylina 把排版后的页面放在最前面。直接点击、输入和选择；需要完整控制时，再自然打开 Typst 源码。</span><span data-lang-content="en">Tylina puts the typeset page first. Click, type, and select directly; open the complete Typst source only when you need it.</span></p>
+          <p class="hero-lead">
+            <span data-lang-content="zh">直接编辑排版后的页面，让自己的 AI Agent 理解真实文档；从一页笔记，到一整套演示文稿，始终保留完整 Typst 源码。</span>
+            <span data-lang-content="en">Edit the typeset page directly and let your own AI agent understand the real document—from a single note to a complete slide deck, always backed by full Typst source.</span>
+          </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="/download/"><span data-lang-content="zh">获取 Tylina</span><span data-lang-content="en">Get Tylina</span></a>
-            <a class="button" href="https://github.com/tylina/tylina-issues/issues/new/choose"><span data-lang-content="zh">提交反馈</span><span data-lang-content="en">Send feedback</span></a>
+            <a class="button button-primary" href="/download/"><span data-lang-content="zh">免费下载</span><span data-lang-content="en">Download free</span></a>
+            <a class="button" href="/demo/"><span data-lang-content="zh">观看编辑演示</span><span data-lang-content="en">Watch the editing demo</span></a>
           </div>
-          <p class="hero-note"><span data-lang-content="zh">macOS · Windows · Linux　无需账号</span><span data-lang-content="en">macOS · Windows · Linux　No account required</span></p>
+          <p class="hero-note"><span data-lang-content="zh">macOS · Windows · Linux　无需账号，文档留在本地</span><span data-lang-content="en">macOS · Windows · Linux　No account. Your documents stay local.</span></p>
         </div>
 
         <div class="product-visual" aria-label="Tylina document editing preview">
@@ -69,6 +73,7 @@
                 <div class="formula">E = mc²</div>
                 <div class="paper-rule"></div>
                 <p>需要更深的控制时，源码会在当前内容附近出现。</p>
+                <div class="source-lens" aria-hidden="true"><span class="lens-check">✓</span><span class="code-hash">#</span><span class="code-keyword">text</span>(fill: <span class="code-string">rgb("#4f7fb3")</span>)[文字]</div>
               </article>
               <article class="document-paper" data-lang-content="en">
                 <p class="paper-kicker">Tylina / Document 01</p>
@@ -78,73 +83,238 @@
                 <div class="formula">E = mc²</div>
                 <div class="paper-rule"></div>
                 <p>For finer control, open the source beside the current content.</p>
+                <div class="source-lens" aria-hidden="true"><span class="lens-check">✓</span><span class="code-hash">#</span><span class="code-keyword">text</span>(fill: <span class="code-string">rgb("#4f7fb3")</span>)[text]</div>
               </article>
-              <div class="source-lens" data-lang-content="zh" aria-hidden="true"><span class="lens-check">✓</span><span class="code-hash">#</span><span class="code-keyword">text</span>(fill: <span class="code-string">rgb("#4f7fb3")</span>)[文字]</div>
-              <div class="source-lens" data-lang-content="en" aria-hidden="true"><span class="lens-check">✓</span><span class="code-hash">#</span><span class="code-keyword">text</span>(fill: <span class="code-string">rgb("#4f7fb3")</span>)[text]</div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="principles">
+      <section class="principles home-principles">
         <div class="container principle-grid">
-          <div class="principle"><strong><span data-lang-content="zh">文档优先</span><span data-lang-content="en">Document first</span></strong><span data-lang-content="zh">默认面对排版页面，不从 IDE 开始。</span><span data-lang-content="en">Start on the typeset page, not inside an IDE.</span></div>
-          <div class="principle"><strong><span data-lang-content="zh">真实 Typst</span><span data-lang-content="en">Real Typst</span></strong><span data-lang-content="zh">源码与资源始终是文档本身。</span><span data-lang-content="en">Source and resources remain the document itself.</span></div>
-          <div class="principle"><strong><span data-lang-content="zh">本地优先</span><span data-lang-content="en">Local first</span></strong><span data-lang-content="zh">真实文件、草稿和历史留在你的设备上。</span><span data-lang-content="en">Files, drafts, and history stay on your device.</span></div>
+          <div class="principle"><strong><span data-lang-content="zh">页面是编辑器</span><span data-lang-content="en">The page is the editor</span></strong><span data-lang-content="zh">光标、选区、输入与格式，都发生在排版结果上。</span><span data-lang-content="en">Caret, selection, input, and formatting live on the typeset result.</span></div>
+          <div class="principle"><strong><span data-lang-content="zh">源码是唯一事实</span><span data-lang-content="en">Source stays canonical</span></strong><span data-lang-content="zh">Typst 源码和资源始终是文档本身，不被私有格式锁定。</span><span data-lang-content="en">Typst source and resources remain the document—never a private format.</span></div>
+          <div class="principle"><strong><span data-lang-content="zh">AI 是协作者</span><span data-lang-content="en">AI is a collaborator</span></strong><span data-lang-content="zh">选择自己的 ACP Agent，审阅每次修改与编译结果。</span><span data-lang-content="en">Choose your own ACP agent and review every edit and compile result.</span></div>
         </div>
       </section>
 
-      <section class="section container" id="writing">
+      <section class="section container" id="wysiwyg">
         <div class="section-heading">
-          <div><p class="section-label"><span data-lang-content="zh">文档 / 源码</span><span data-lang-content="en">Document / Source</span></p><h2><span data-lang-content="zh">页面在前，<br>源码随时可达。</span><span data-lang-content="en">The page comes first.<br>Source stays within reach.</span></h2></div>
-          <p class="section-intro"><span data-lang-content="zh">文档模式适合持续写作。双栏模式、源码 Lens 与前置源码区，让复杂 Typst 仍然完整可控。</span><span data-lang-content="en">Document view is made for sustained writing. Split view, Source Lens, and the Prefix Area keep the full language close by.</span></p>
-        </div>
-        <div class="mode-comparison">
-          <div class="mode-panel">
-            <div class="mode-name"><span data-lang-content="zh">源码</span><span data-lang-content="en">Source</span></div>
-            <div class="code-example" data-lang-content="en"><span class="line-number">1</span><span class="code-keyword">#set</span> page(paper: <span class="code-string">"a4"</span>)
-<span class="line-number">2</span><span class="code-keyword">#set</span> text(size: 11pt)
-<span class="line-number">3</span>
-<span class="line-number">4</span>= A concise field guide
-<span class="line-number">5</span>
-<span class="line-number">6</span>The document stays calm while
-<span class="line-number">7</span>you write. Headings, lists,
-<span class="line-number">8</span>references, mathematics, and
-<span class="line-number">9</span>figures remain part of one page.
-<span class="line-number">10</span>
-<span class="line-number">11</span>$ integral_0^1 x^2 dif x = 1/3 $</div>
-            <div class="code-example" data-lang-content="zh"><span class="line-number">1</span><span class="code-keyword">#set</span> page(paper: <span class="code-string">"a4"</span>)
-<span class="line-number">2</span><span class="code-keyword">#set</span> text(size: 11pt)
-<span class="line-number">3</span>
-<span class="line-number">4</span>= 一份简洁的使用指南
-<span class="line-number">5</span>
-<span class="line-number">6</span>写作时页面保持清爽。标题、列表、
-<span class="line-number">7</span>参考文献、数学公式和图表，
-<span class="line-number">8</span>都属于同一份排版文档。
-<span class="line-number">9</span>
-<span class="line-number">10</span>$ integral_0^1 x^2 dif x = 1/3 $</div>
+          <div>
+            <p class="section-label"><span data-lang-content="zh">所见即所得</span><span data-lang-content="en">WYSIWYG, backed by Typst</span></p>
+            <h2><span data-lang-content="zh">像写文档一样，<br>写 Typst。</span><span data-lang-content="en">Write Typst<br>like a document.</span></h2>
           </div>
-          <div class="mode-panel">
-            <div class="mode-name"><span data-lang-content="zh">预览</span><span data-lang-content="en">Preview</span></div>
-            <article class="typeset-example" data-lang-content="en"><h3>A concise field guide</h3><p>The document stays calm while you write. Headings, lists, references, mathematics, and figures remain part of one typeset page.</p><div class="formula">∫₀¹ x² dx = ⅓</div><p><strong>Direct editing.</strong> Click the result, then keep writing.</p></article>
-            <article class="typeset-example" data-lang-content="zh"><h3>一份简洁的使用指南</h3><p>写作时页面保持清爽。标题、列表、参考文献、数学公式和图表，都属于同一份排版文档。</p><div class="formula">∫₀¹ x² dx = ⅓</div><p><strong>直接编辑。</strong>点击排版结果，然后继续输入。</p></article>
+          <p class="section-intro"><span data-lang-content="zh">平常写作留在 Document，需要结构与语法时打开 Source Lens 或 Split。三个界面编辑的是同一份源码。</span><span data-lang-content="en">Stay in Document for everyday writing. Open Source Lens or Split when structure and syntax matter. All three edit the same source.</span></p>
+        </div>
+
+        <div class="interactive-demo editor-demo" data-editor-preview data-mode="document">
+          <div class="demo-switcher" role="tablist" aria-label="Editing surface preview">
+            <span class="interactive-label"><i data-lucide="mouse-pointer-click" aria-hidden="true"></i><span data-lang-content="zh">交互预览</span><span data-lang-content="en">Interactive preview</span></span>
+            <button type="button" role="tab" data-editor-mode="document" aria-selected="true">Document</button>
+            <button type="button" role="tab" data-editor-mode="lens" aria-selected="false">Source Lens</button>
+            <button type="button" role="tab" data-editor-mode="split" aria-selected="false">Split</button>
+          </div>
+          <div class="editor-demo-stage">
+            <aside class="editor-outline" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </aside>
+            <div class="editor-source-pane" aria-hidden="true">
+              <div><b>1</b><span class="syntax-mark">#set</span> page(margin: 28mm)</div>
+              <div><b>2</b><span class="syntax-mark">#set</span> text(size: 11pt)</div>
+              <div><b>3</b></div>
+              <div><b>4</b><span class="syntax-heading">= Living documents</span></div>
+              <div><b>5</b></div>
+              <div><b>6</b>Good tools keep the idea</div>
+              <div><b>7</b>in view while you write.</div>
+              <div><b>8</b></div>
+              <div><b>9</b><span class="syntax-mark">#quote</span>[The page is the interface.]</div>
+            </div>
+            <div class="editor-document-pane">
+              <article class="editor-paper">
+                <span class="paper-page-number">01</span>
+                <p class="paper-kicker">TYLINA / DOCUMENT</p>
+                <h3>Living documents</h3>
+                <p>Good tools keep the idea in view while you write. The page stays calm; the source stays complete.</p>
+                <blockquote>The page is the interface.<span class="demo-caret" aria-hidden="true"></span></blockquote>
+              </article>
+              <div class="editor-source-lens" aria-hidden="true"><span class="lens-status">✓</span><span class="syntax-mark">#quote</span>[The page is the interface.]</div>
+            </div>
+          </div>
+          <div class="demo-explanation" aria-live="polite">
+            <p data-editor-copy="document"><span data-lang-content="zh">直接编辑排版页面；方向键、选区、复制粘贴与 IME 都围绕可见内容工作。</span><span data-lang-content="en">Edit the typeset page directly; navigation, selection, clipboard, and IME follow visible content.</span></p>
+            <p data-editor-copy="lens" hidden><span data-lang-content="zh">双击复杂内容，在当前位置打开一小块真实源码；编译成功才确认修改。</span><span data-lang-content="en">Double-click complex content to open its real source in place; edits commit only after a successful compile.</span></p>
+            <p data-editor-copy="split" hidden><span data-lang-content="zh">需要完整语言能力时进入双栏，源码与页面仍共享光标、选区和历史。</span><span data-lang-content="en">Move to Split for the full language surface while source and page keep one caret, selection, and history.</span></p>
           </div>
         </div>
       </section>
 
-      <section class="section" id="features">
+      <section class="section ai-section" id="ai">
         <div class="container">
           <div class="section-heading">
-            <div><p class="section-label"><span data-lang-content="zh">所见即所得</span><span data-lang-content="en">WYSIWYG, backed by Typst</span></p><h2><span data-lang-content="zh">在排版页面里，<br>直接完成写作。</span><span data-lang-content="en">Edit the typeset page<br>directly.</span></h2></div>
-            <p class="section-intro"><span data-lang-content="zh">点击页面即可放置光标，直接输入、选择、删除和调整格式；源码同步更新，需要时随时打开。</span><span data-lang-content="en">Place the caret on the page, then type, select, delete, and format in place. The Typst source updates with every edit and remains ready whenever you need it.</span></p>
+            <div>
+              <p class="section-label"><span data-lang-content="zh">AI 原生</span><span data-lang-content="en">AI native</span></p>
+              <h2><span data-lang-content="zh">让 AI 看见文档，<br>也看见修改结果。</span><span data-lang-content="en">AI that sees the document<br>and the result.</span></h2>
+            </div>
+            <p class="section-intro"><span data-lang-content="zh">Tylina 通过 ACP 连接 Codex、Claude Code、Kimi Code、OpenCode 或自定义 Agent，并用 Skills 与 MCP 提供当前文档的真实上下文。</span><span data-lang-content="en">Tylina connects Codex, Claude Code, Kimi Code, OpenCode, or a custom agent through ACP, then exposes real document context through Skills and MCP.</span></p>
           </div>
-          <div class="feature-grid">
-            <article class="feature"><span class="feature-index">01</span><h3><span data-lang-content="zh">直接编辑页面</span><span data-lang-content="en">Edit on the page</span></h3><p><span data-lang-content="zh">在排版结果上点击、输入、选择和调整格式，修改直接写回真实的 Typst 源码。</span><span data-lang-content="en">Click, type, select, and format on the typeset result. Every edit is written back to real Typst source.</span></p></article>
-            <article class="feature"><span class="feature-index">02</span><h3><span data-lang-content="zh">完整项目</span><span data-lang-content="en">Complete projects</span></h3><p><span data-lang-content="zh">草稿、单文件与文件夹工作区，支持资源、主文件和多文件编辑。</span><span data-lang-content="en">Drafts, single files, and folder workspaces with resources, main files, and multi-file editing.</span></p></article>
-            <article class="feature"><span class="feature-index">03</span><h3><span data-lang-content="zh">本地版本历史</span><span data-lang-content="en">Local version history</span></h3><p><span data-lang-content="zh">自动保存与本地历史，让修改可以理解、恢复和继续。</span><span data-lang-content="en">Autosave and local history keep changes understandable and recoverable.</span></p></article>
-            <article class="feature"><span class="feature-index">04</span><h3><span data-lang-content="zh">语言能力</span><span data-lang-content="en">Language intelligence</span></h3><p><span data-lang-content="zh">通过 Tinymist 提供补全、诊断、格式化、导航与 Typst 包支持。</span><span data-lang-content="en">Completion, diagnostics, formatting, navigation, and Typst packages through Tinymist.</span></p></article>
-            <article class="feature"><span class="feature-index">05</span><h3><span data-lang-content="zh">可视化工具</span><span data-lang-content="en">Visual tools</span></h3><p><span data-lang-content="zh">公式、表格、Mermaid、交换图、符号、字体与文档设置。</span><span data-lang-content="en">Formulas, tables, Mermaid, commutative diagrams, symbols, fonts, and document setup.</span></p></article>
-            <article class="feature"><span class="feature-index">06</span><h3><span data-lang-content="zh">导入、导出与演示</span><span data-lang-content="en">Import, export, and present</span></h3><p><span data-lang-content="zh">导入常用格式，导出 PDF 等成品，也可切换幻灯片模式并在独立窗口演示。</span><span data-lang-content="en">Import common formats, export finished documents such as PDF, or switch to Slides Mode and present in a separate window.</span></p></article>
+
+          <div class="agent-showcase interactive-demo" data-agent-preview data-ai-state="improve">
+            <div class="agent-document-surface" aria-hidden="true">
+              <div class="agent-editing-status">
+                <i data-lucide="sparkles"></i>
+                <span data-lang-content="zh">正在加入新内容…</span>
+                <span data-lang-content="en">Adding new content…</span>
+                <span class="agent-editing-progress">30/34</span>
+              </div>
+              <article class="agent-document-page">
+                <p class="paper-kicker">TYLINA / DOCUMENT 04</p>
+                <h3><span data-lang-content="zh">设计可信赖的文档</span><span data-lang-content="en">Designing documents people can trust</span></h3>
+                <p><span data-lang-content="zh">好的编辑器让写作者始终面对最终页面，也让每一次自动修改都可以被理解。</span><span data-lang-content="en">A good editor keeps the finished page in view and makes every automated change understandable.</span></p>
+                <p class="agent-diff-block" data-tone="removed"><span class="agent-diff-sign">−</span><span data-lang-content="zh">自动修改应该尽快完成，不必打断写作。</span><span data-lang-content="en">Automated edits should finish quickly without interrupting the writing flow.</span></p>
+                <p class="agent-diff-block" data-tone="added"><span class="agent-diff-sign">+</span><span data-lang-content="zh">自动修改应当可见、可审阅，并且始终可以撤销。</span><span data-lang-content="en">Automated edits should stay visible, reviewable, and always reversible.</span></p>
+                <p class="agent-summary-focus"><span data-lang-content="zh">文档的核心结论：自动修改必须可见、可审阅，也必须可以撤销。</span><span data-lang-content="en">Core conclusion: automated edits must stay visible, reviewable, and reversible.</span></p>
+              </article>
+              <figure class="agent-slide-preview">
+                <img src="/showcase/slides-botanical-7.png" alt="" width="1684" height="947" loading="lazy">
+                <figcaption><span data-lang-content="zh">Botanical · 正在编辑第 7 / 17 页</span><span data-lang-content="en">Botanical · Editing page 7 / 17</span></figcaption>
+              </figure>
+            </div>
+
+            <aside class="agent-dock" aria-live="polite">
+              <div class="agent-dock-header"><span><i data-lucide="sparkles" aria-hidden="true"></i><b><span data-lang-content="zh">会话 1</span><span data-lang-content="en">Session 1</span></b></span><span>Codex <i class="agent-ready"></i></span></div>
+              <div class="ai-panel" data-ai-panel="improve">
+                <div class="ai-user-message"><span data-lang-content="zh">把这个选区改得更清晰，但不要改变论点。</span><span data-lang-content="en">Make this selection clearer without changing its argument.</span></div>
+                <div class="ai-context-chip"><i data-lucide="scan-text" aria-hidden="true"></i><span data-lang-content="zh">已附加 main.typ · 第 42–48 行</span><span data-lang-content="en">Attached main.typ · lines 42–48</span></div>
+                <div class="agent-process-card">
+                  <div class="agent-process-title"><i data-lucide="brain-circuit" aria-hidden="true"></i><b><span data-lang-content="zh">Agent 过程</span><span data-lang-content="en">Agent process</span></b><span>4 <span data-lang-content="zh">个步骤</span><span data-lang-content="en">steps</span></span></div>
+                  <div><i data-lucide="book-open-check" aria-hidden="true"></i><span data-lang-content="zh">读取写作 Skill 与选区上下文</span><span data-lang-content="en">Read the writing Skill and selection context</span><i class="process-ok"></i></div>
+                  <div><i data-lucide="file-pen-line" aria-hidden="true"></i><span>Editing main.typ</span><i class="process-ok"></i></div>
+                  <div><i data-lucide="badge-check" aria-hidden="true"></i><span data-lang-content="zh">编译成功 · 影响 1 页</span><span data-lang-content="en">Compile passed · 1 page affected</span><i class="process-ok"></i></div>
+                </div>
+              </div>
+              <div class="ai-panel" data-ai-panel="explain" hidden>
+                <div class="ai-user-message"><span data-lang-content="zh">总结这份文档的主要结论、依据和还没解决的问题。</span><span data-lang-content="en">Summarize the document's conclusions, evidence, and unresolved questions.</span></div>
+                <div class="ai-context-chip"><i data-lucide="file-search" aria-hidden="true"></i><span data-lang-content="zh">已读取 12 页 · 6 个语义章节</span><span data-lang-content="en">Read 12 pages · 6 semantic sections</span></div>
+                <div class="ai-summary-sheet"><b><span data-lang-content="zh">文档摘要</span><span data-lang-content="en">Document summary</span></b><span></span><span></span><span></span><small><span data-lang-content="zh">结论 3 · 依据 7 · 待办 2</span><span data-lang-content="en">3 claims · 7 evidence items · 2 open questions</span></small></div>
+              </div>
+              <div class="ai-panel" data-ai-panel="deck" hidden>
+                <div class="ai-user-message"><span data-lang-content="zh">用 Botanical 主题整理这套 17 页研究演示。</span><span data-lang-content="en">Refine this 17-page research deck with the Botanical theme.</span></div>
+                <div class="ai-context-chip"><i data-lucide="layout-template" aria-hidden="true"></i><span data-lang-content="zh">Quick Slides · Botanical · 17 页</span><span data-lang-content="en">Quick Slides · Botanical · 17 pages</span></div>
+                <div class="agent-process-card">
+                  <div class="agent-process-title"><i data-lucide="brain-circuit" aria-hidden="true"></i><b><span data-lang-content="zh">Agent 过程</span><span data-lang-content="en">Agent process</span></b><span>3 <span data-lang-content="zh">个步骤</span><span data-lang-content="en">steps</span></span></div>
+                  <div><i data-lucide="layout-template" aria-hidden="true"></i><span data-lang-content="zh">应用 Botanical 主题</span><span data-lang-content="en">Apply the Botanical theme</span><i class="process-ok"></i></div>
+                  <div><i data-lucide="file-pen-line" aria-hidden="true"></i><span>Editing main.typ</span><i class="process-ok"></i></div>
+                  <div><i data-lucide="badge-check" aria-hidden="true"></i><span data-lang-content="zh">编译并检查 17 页</span><span data-lang-content="en">Compile and inspect 17 pages</span><i class="process-ok"></i></div>
+                </div>
+                <p><i data-lucide="badge-check" aria-hidden="true"></i><span data-lang-content="zh">已编译，并检查全部页面</span><span data-lang-content="en">Compiled and checked every page</span></p>
+              </div>
+              <div class="agent-composer"><span><span data-lang-content="zh">继续修改当前文档…</span><span data-lang-content="en">Continue working on this document…</span></span><i data-lucide="arrow-up-right" aria-hidden="true"></i></div>
+            </aside>
+          </div>
+
+          <div class="agent-demo-controls" role="tablist" aria-label="AI workflow preview">
+            <button type="button" role="tab" data-ai-task="improve" aria-selected="true"><i data-lucide="wand-sparkles" aria-hidden="true"></i><span data-lang-content="zh">改进选区</span><span data-lang-content="en">Improve selection</span></button>
+            <button type="button" role="tab" data-ai-task="explain" aria-selected="false"><i data-lucide="list-checks" aria-hidden="true"></i><span data-lang-content="zh">总结文档</span><span data-lang-content="en">Summarize document</span></button>
+            <button type="button" role="tab" data-ai-task="deck" aria-selected="false"><i data-lucide="presentation" aria-hidden="true"></i><span data-lang-content="zh">创建 Slides</span><span data-lang-content="en">Create slides</span></button>
+            <a href="/docs/acp/"><i data-lucide="settings-2" aria-hidden="true"></i><span data-lang-content="zh">连接自己的 ACP Agent</span><span data-lang-content="en">Connect your own ACP agent</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section slides-section" id="slides">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="section-label">Slides generation & editing</p>
+              <h2><span data-lang-content="zh">从内容到讲台，<br>都在同一份 Typst 里。</span><span data-lang-content="en">From source material<br>to the stage.</span></h2>
+            </div>
+            <p class="section-intro"><span data-lang-content="zh">快速生成或完整策划一套 Slides，再像 PowerPoint 一样浏览缩略图、调整顺序、编辑单页与演讲者备注。</span><span data-lang-content="en">Generate a quick draft or plan a complete deck, then browse thumbnails, reorder slides, edit pages, and manage speaker notes in a PowerPoint-like workspace.</span></p>
+          </div>
+
+          <div class="slide-studio interactive-demo" data-slide-studio>
+            <div class="slide-studio-titlebar"><span><i data-lucide="presentation" aria-hidden="true"></i><span data-lang-content="zh">幻灯片</span><span data-lang-content="en">Slides</span></span><span class="studio-mode"><i data-lucide="sparkles" aria-hidden="true"></i> SeaSlides · Botanical · <span data-lang-content="zh">交互预览</span><span data-lang-content="en">Interactive preview</span></span></div>
+            <div class="slide-studio-body">
+              <aside class="slide-thumbnails" aria-label="Slide preview selection">
+                <button type="button" data-slide-src="/showcase/slides-botanical-1.png" data-slide-number="1" aria-selected="false"><span>1</span><img src="/showcase/slides-botanical-1.png" alt="" width="1684" height="947" loading="lazy"></button>
+                <button type="button" data-slide-src="/showcase/slides-botanical-3.png" data-slide-number="3" aria-selected="false"><span>3</span><img src="/showcase/slides-botanical-3.png" alt="" width="1684" height="947" loading="lazy"></button>
+                <button type="button" data-slide-src="/showcase/slides-botanical-4.png" data-slide-number="4" aria-selected="false"><span>4</span><img src="/showcase/slides-botanical-4.png" alt="" width="1684" height="947" loading="lazy"></button>
+                <button type="button" data-slide-src="/showcase/slides-botanical-5.png" data-slide-number="5" aria-selected="false"><span>5</span><img src="/showcase/slides-botanical-5.png" alt="" width="1684" height="947" loading="lazy"></button>
+                <button type="button" data-slide-src="/showcase/slides-botanical-7.png" data-slide-number="7" aria-selected="true"><span>7</span><img src="/showcase/slides-botanical-7.png" alt="" width="1684" height="947" loading="lazy"></button>
+                <button type="button" data-slide-src="/showcase/slides-botanical-17.png" data-slide-number="17" aria-selected="false"><span>17</span><img src="/showcase/slides-botanical-17.png" alt="" width="1684" height="947" loading="lazy"></button>
+              </aside>
+              <div class="slide-canvas">
+                <div class="slide-floating-tools" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+                <img data-slide-main src="/showcase/slides-botanical-7.png" alt="Botanical slide preview" width="1684" height="947" loading="lazy">
+                <span class="slide-progress"><b data-slide-current>7</b> / 17</span>
+              </div>
+            </div>
+            <div class="speaker-notes-preview"><span><i data-lucide="notebook-pen" aria-hidden="true"></i><span data-lang-content="zh">演讲者备注</span><span data-lang-content="en">Speaker notes</span></span><p><span data-lang-content="zh">先解释这页为什么重要，再指出听众接下来应该关注的数字。</span><span data-lang-content="en">Explain why this page matters, then direct attention to the number the audience should carry forward.</span></p></div>
+          </div>
+
+          <div class="slides-capabilities">
+            <div><b>Quick / Full</b><span data-lang-content="zh">快速成稿，或完整研究与视觉核验。</span><span data-lang-content="en">Move quickly, or run full research and visual review.</span></div>
+            <div><b>Curated themes</b><span data-lang-content="zh">Plain、Rich、Canvas 与社区主题。</span><span data-lang-content="en">Plain, Rich, Canvas, and community themes.</span></div>
+            <div><b>PDF · PNG · PPTX</b><span data-lang-content="zh">保留可读源码，也交付常用格式。</span><span data-lang-content="en">Keep readable source and deliver common formats.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section scenes-section" id="scenes">
+        <div class="container">
+          <div class="section-heading scenes-heading">
+            <div>
+              <p class="section-label"><span data-lang-content="zh">不只是论文</span><span data-lang-content="en">Beyond papers</span></p>
+              <h2><span data-lang-content="zh">一套编辑体验，<br>许多种成品。</span><span data-lang-content="en">One editing model.<br>Many finished forms.</span></h2>
+            </div>
+            <div class="scene-heading-side">
+              <p class="section-intro"><span data-lang-content="zh">模板负责起点，Tylina 负责把它变成可以直接编辑、继续创作和交付的真实项目。</span><span data-lang-content="en">Templates provide the starting point. Tylina turns them into real projects you can edit, extend, and deliver.</span></p>
+              <div class="carousel-controls"><button type="button" data-carousel-prev aria-label="Previous use case"><i data-lucide="arrow-left" aria-hidden="true"></i></button><span data-carousel-count>01 / 08</span><button type="button" data-carousel-next aria-label="Next use case"><i data-lucide="arrow-right" aria-hidden="true"></i></button></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scene-carousel" data-use-carousel tabindex="0" aria-label="Tylina use cases">
+          <article class="scene-card" data-scene="cv">
+            <div class="scene-copy"><span class="scene-index">01</span><p class="scene-kind">CV / Résumé</p><h3><span data-lang-content="zh">从模板开始，<br>把经历写成作品。</span><span data-lang-content="en">Turn experience<br>into a finished story.</span></h3><p><span data-lang-content="zh">直接修改排版后的履历，保留真实的结构、链接与可解析文本；需要时再进入源码微调。</span><span data-lang-content="en">Edit the typeset résumé while preserving structure, links, and extractable text; open source only for fine control.</span></p><a href="https://typst.app/universe/package/basic-resume/" target="_blank" rel="noreferrer">basic-resume 0.2.9 · Unlicense <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+            <figure class="scene-visual scene-portrait"><img src="/showcase/cv-basic-resume.png" alt="A résumé compiled from the basic-resume Typst Universe template" width="1360" height="1760" loading="lazy"></figure>
+          </article>
+          <article class="scene-card" data-scene="poster">
+            <div class="scene-copy"><span class="scene-index">02</span><p class="scene-kind">Poster</p><h3><span data-lang-content="zh">把证据放大，<br>而不是把字缩小。</span><span data-lang-content="en">Make the evidence bigger,<br>not the type smaller.</span></h3><p><span data-lang-content="zh">在真实画布上编辑标题、图表和结论，随时用 AI 检查信息层级与版面溢出。</span><span data-lang-content="en">Edit titles, charts, and conclusions on the real canvas, with AI checks for hierarchy and overflow.</span></p><a href="https://github.com/taka255/pollux" target="_blank" rel="noreferrer">Pollux · MIT <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+            <figure class="scene-visual scene-portrait"><img src="/showcase/poster-pollux.png" alt="An accessible research poster compiled from the SeaSlides Pollux scenario template" width="2384" height="3370" loading="lazy"></figure>
+          </article>
+          <article class="scene-card" data-scene="social-cover">
+            <div class="scene-copy"><span class="scene-index">03</span><p class="scene-kind">Social cover</p><h3><span data-lang-content="zh">同一份内容，<br>适配不同画布。</span><span data-lang-content="en">One message,<br>many canvases.</span></h3><p><span data-lang-content="zh">从竖版封面到方形轮播，用 Typst 的可复用组件保持内容、网格与品牌语言一致。</span><span data-lang-content="en">From portrait covers to square carousels, reusable Typst components keep content and grid systems consistent.</span></p><a href="https://github.com/touying-typ/seaslides" target="_blank" rel="noreferrer">SeaSlides scenario templates · MIT <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+            <figure class="scene-visual scene-portrait"><img src="/showcase/social-editorial-grid.png" alt="A social cover compiled from a SeaSlides scenario template" width="1440" height="1800" loading="lazy"></figure>
+          </article>
+          <article class="scene-card" data-scene="chart">
+            <div class="scene-copy"><span class="scene-index">04</span><p class="scene-kind">Chart</p><h3><span data-lang-content="zh">数据、叙事与页面，<br>不再分家。</span><span data-lang-content="en">Data, narrative,<br>and page stay together.</span></h3><p><span data-lang-content="zh">在同一项目里维护数据和图表源码；AI 可以更新数值，Tylina 负责立即编译并展示结果。</span><span data-lang-content="en">Keep data and chart source in one project. AI can update values while Tylina compiles and shows the result.</span></p><a href="https://lilaq.org/" target="_blank" rel="noreferrer">lilaq · MIT <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+            <figure class="scene-visual scene-landscape"><img src="/showcase/chart-area.png" alt="An English audience growth area chart compiled from a SeaSlides chart template" width="1684" height="947" loading="lazy"></figure>
+          </article>
+          <article class="scene-card" data-scene="note">
+            <div class="scene-copy"><span class="scene-index">05</span><p class="scene-kind">Note</p><h3><span data-lang-content="zh">随手记下，<br>也能自然长成文章。</span><span data-lang-content="en">Capture it quickly.<br>Let it grow naturally.</span></h3><p><span data-lang-content="zh">先在页面里整理观点和公式，再扩展为章节、参考文献与完整文档，不需要换一种工具。</span><span data-lang-content="en">Start with ideas and formulas, then grow them into sections, references, and a complete document without changing tools.</span></p><a href="https://typst.app/universe/package/bananote/" target="_blank" rel="noreferrer">bananote 0.1.2 · MIT <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+            <figure class="scene-visual scene-portrait"><img src="/showcase/note-bananote.png" alt="Research notes compiled from the bananote Typst Universe template" width="1323" height="1871" loading="lazy"></figure>
+          </article>
+          <article class="scene-card" data-scene="paper">
+            <div class="scene-copy"><span class="scene-index">06</span><p class="scene-kind">Paper</p><h3><span data-lang-content="zh">写作、引用与公式，<br>始终面对最终页面。</span><span data-lang-content="en">Writing, citations, and math<br>on the final page.</span></h3><p><span data-lang-content="zh">用 Document 保持写作节奏，用 Split 处理复杂语法，再让 Agent 检查结构、编译与影响页面。</span><span data-lang-content="en">Keep momentum in Document, handle complex syntax in Split, and let an agent check structure, compilation, and affected pages.</span></p><a href="https://typst.app/universe/package/accelerated-jacow/" target="_blank" rel="noreferrer">accelerated-jacow 0.14.1 · MIT-0 template <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+            <figure class="scene-visual scene-portrait"><img src="/showcase/paper-accelerated-jacow.png" alt="A conference paper compiled from the accelerated-jacow Typst Universe template" width="1587" height="2112" loading="lazy"></figure>
+          </article>
+          <article class="scene-card" data-scene="report">
+            <div class="scene-copy"><span class="scene-index">07</span><p class="scene-kind">Report</p><h3><span data-lang-content="zh">从数据到结论，<br>每次修改都可审阅。</span><span data-lang-content="en">From data to conclusion,<br>every edit stays reviewable.</span></h3><p><span data-lang-content="zh">让 AI 补充内容或更新数字，同时保留本地历史、视觉差异与可恢复的真实源文件。</span><span data-lang-content="en">Let AI extend content or refresh numbers while keeping local history, visual diffs, and recoverable source files.</span></p><a href="https://typst.app/universe/package/breezy-report/" target="_blank" rel="noreferrer">breezy-report 0.1.0 · MIT <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+            <figure class="scene-visual scene-portrait"><img src="/showcase/report.png" alt="A report compiled from the breezy-report Typst Universe template" width="992" height="1403" loading="lazy"></figure>
+          </article>
+          <article class="scene-card" data-scene="book">
+            <div class="scene-copy"><span class="scene-index">08</span><p class="scene-kind">Book</p><h3><span data-lang-content="zh">长篇写作，<br>仍然专注当前这一页。</span><span data-lang-content="en">Long-form writing,<br>focused on the current page.</span></h3><p><span data-lang-content="zh">章节、目录、页眉和版式来自可复用模板；写作者面对的仍是连续、安静的阅读与编辑体验。</span><span data-lang-content="en">Chapters, contents, running heads, and layout come from a reusable template while writing remains quiet and continuous.</span></p><a href="https://typst.app/universe/package/min-book/" target="_blank" rel="noreferrer">min-book 1.5.0 · MIT-0 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+            <figure class="scene-visual scene-portrait"><img src="/showcase/book-min-book.png" alt="A decorated book cover compiled from the min-book Typst Universe template" width="839" height="1191" loading="lazy"></figure>
+          </article>
+        </div>
+      </section>
+
+      <section class="section container acknowledgements" id="acknowledgements">
+        <div class="acknowledgement-panel">
+          <div><p class="section-label"><span data-lang-content="zh">感谢开放生态</span><span data-lang-content="en">Built with an open ecosystem</span></p><h2><span data-lang-content="zh">感谢 Typst、Touying，<br>也感谢每一位模板作者。</span><span data-lang-content="en">Thank you, Typst, Touying,<br>and every template author.</span></h2></div>
+          <div class="acknowledgement-copy">
+            <p><span data-lang-content="zh">本页展示的第三方模板与包仍归各自作者所有。许可证、署名、再分发和商标条款均遵循对应的上游项目；Tylina 不会重新许可第三方作品。</span><span data-lang-content="en">Third-party templates and packages shown here remain the work of their authors. License, attribution, redistribution, and trademark terms follow each upstream project; Tylina does not relicense third-party work.</span></p>
+            <div class="credit-links"><a href="https://typst.app/" target="_blank" rel="noreferrer">Typst <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><a href="https://typst.app/universe/" target="_blank" rel="noreferrer">Typst Universe <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><a href="https://github.com/touying-typ/touying" target="_blank" rel="noreferrer">Touying <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><a href="https://github.com/touying-typ/seaslides" target="_blank" rel="noreferrer">SeaSlides <i data-lucide="arrow-up-right" aria-hidden="true"></i></a><a href="/THIRD_PARTY_NOTICES.txt"><span data-lang-content="zh">第三方声明</span><span data-lang-content="en">Third-party notices</span> <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
           </div>
         </div>
       </section>
@@ -154,22 +324,22 @@
           <div><p class="section-label"><span data-lang-content="zh">本地优先</span><span data-lang-content="en">Local first</span></p><h2><span data-lang-content="zh">你的文档，<br>留在你的电脑。</span><span data-lang-content="en">Your documents<br>stay on your computer.</span></h2></div>
           <div class="privacy-points">
             <div class="privacy-point"><b>01</b><p><span data-lang-content="zh">无需注册账号，也不会把文档上传到 Tylina 服务。</span><span data-lang-content="en">No account is required, and documents are not uploaded to a Tylina service.</span></p></div>
-            <div class="privacy-point"><b>02</b><p><span data-lang-content="zh">文件保留在你打开的位置；草稿、设置与历史存储在本机。</span><span data-lang-content="en">Files stay where you opened them; drafts, settings, and history are stored locally.</span></p></div>
-            <div class="privacy-point"><b>03</b><p><span data-lang-content="zh">0.3.0 不包含广告、使用情况统计或自动上传的崩溃报告。</span><span data-lang-content="en">Version 0.3.0 has no ads, usage analytics, or automatic crash-report uploads.</span></p></div>
+            <div class="privacy-point"><b>02</b><p><span data-lang-content="zh">文件、草稿、设置与历史保留在本机；你选择的 Agent 按自己的配置运行。</span><span data-lang-content="en">Files, drafts, settings, and history stay local; your chosen agent runs with its own configuration.</span></p></div>
+            <div class="privacy-point"><b>03</b><p><span data-lang-content="zh">Typst 源码始终可以被其他编辑器、编译器与版本控制工具继续使用。</span><span data-lang-content="en">Typst source remains usable by other editors, compilers, and version-control tools.</span></p></div>
           </div>
         </div></div>
       </section>
 
-      <section class="container cta">
-        <div><h2><span data-lang-content="zh">开始写下一份 Typst 文档。</span><span data-lang-content="en">Start your next Typst document.</span></h2><p><span data-lang-content="zh">Tylina 0.3.0 目前是开发预览版。</span><span data-lang-content="en">Tylina 0.3.0 is currently a development preview.</span></p></div>
-        <div class="cta-actions"><a class="button button-primary" href="/download/"><span data-lang-content="zh">查看下载</span><span data-lang-content="en">View downloads</span></a><a class="button" href="https://github.com/tylina/tylina-issues"><span data-lang-content="zh">反馈与支持</span><span data-lang-content="en">Feedback and support</span></a></div>
+      <section class="container cta cta-new">
+        <div><p class="section-label">Tylina 0.3.0</p><h2><span data-lang-content="zh">下一份漂亮文档，<br>直接从页面开始。</span><span data-lang-content="en">Start the next beautiful document<br>from the page itself.</span></h2><p><span data-lang-content="zh">开发预览版现已提供 macOS、Windows 与 Linux 下载。</span><span data-lang-content="en">The development preview is available for macOS, Windows, and Linux.</span></p></div>
+        <div class="cta-actions"><a class="button button-primary" href="/download/"><span data-lang-content="zh">下载 Tylina</span><span data-lang-content="en">Download Tylina</span></a><a class="button" href="https://github.com/tylina/tylina-issues"><span data-lang-content="zh">反馈与支持</span><span data-lang-content="en">Feedback and support</span></a></div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-inner">
         <div><div class="footer-brand"><img src="/app.png" alt=""><span>Tylina</span></div><p class="copyright">Copyright © <span data-current-year>2026</span> OrangeX4. All rights reserved.</p></div>
-        <nav class="footer-nav" aria-label="Footer navigation"><a href="/demo/">Demo</a><a href="/download/"><span data-lang-content="zh">下载</span><span data-lang-content="en">Download</span></a><a href="https://github.com/tylina/tylina-issues"><span data-lang-content="zh">反馈</span><span data-lang-content="en">Feedback</span></a><a href="https://github.com/OrangeX4">OrangeX4</a></nav>
+        <nav class="footer-nav" aria-label="Footer navigation"><a href="/demo/">Demo</a><a href="/download/"><span data-lang-content="zh">下载</span><span data-lang-content="en">Download</span></a><a href="/docs/acp/">ACP</a><a href="https://github.com/tylina/tylina-issues"><span data-lang-content="zh">反馈</span><span data-lang-content="en">Feedback</span></a><a href="https://github.com/OrangeX4">OrangeX4</a></nav>
       </div>
     </footer>
   </body>
