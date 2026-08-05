@@ -6,8 +6,9 @@ const dist = new URL("../dist/", import.meta.url);
 const built = (path) => readFile(new URL(path, dist), "utf8");
 
 test("builds every public route with bilingual product copy", async () => {
-  const [home, demo, download, notFound] = await Promise.all([
-    built("index.html"), built("demo/index.html"), built("download/index.html"), built("404.html")
+  const [home, demo, download, acp, notFound] = await Promise.all([
+    built("index.html"), built("demo/index.html"), built("download/index.html"),
+    built("docs/acp/index.html"), built("404.html")
   ]);
   assert.match(home, /Typst，<br>所见即所得。/);
   assert.match(home, /WYSIWYG<br>for Typst\./);
@@ -51,6 +52,11 @@ test("builds every public route with bilingual product copy", async () => {
   assert.doesNotMatch(download, /\.blockmap/);
   assert.doesNotMatch(home, /href="\/privacy\//);
   assert.doesNotMatch(download, /href="\/privacy\//);
+  assert.match(acp, /在 Tylina 中连接 ACP Agent/);
+  assert.match(acp, /Connect an ACP Agent to Tylina/);
+  assert.match(acp, /Tylina never starts an Agent until you explicitly select/);
+  assert.match(acp, /executable and each argument separately/);
+  assert.match(acp, /agentclientprotocol\.com\/get-started\/registry/);
   assert.match(notFound, /404/);
 });
 

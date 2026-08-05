@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect an ACP Agent · Tylina</title>
+    <meta name="description" content="Connect a local or custom ACP Agent to Tylina without shell command parsing.">
+    <meta name="theme-color" content="#fafafa">
+    <link rel="canonical" href="https://tylina.github.io/docs/acp/">
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
+    <link rel="apple-touch-icon" href="/app.png">
+    <link rel="stylesheet" href="/src/styles.css">
+    <script type="module" src="/src/site.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main"><span data-lang-content="zh">跳到正文</span><span data-lang-content="en">Skip to content</span></a>
+    <header class="site-header"><div class="header-inner">
+      <a class="brand" href="/"><img src="/app.png" alt=""><span>Tylina</span></a>
+      <nav class="site-nav" aria-label="Primary navigation"><a href="/#writing"><span data-lang-content="zh">写作</span><span data-lang-content="en">Writing</span></a><a href="/#features"><span data-lang-content="zh">功能</span><span data-lang-content="en">Features</span></a><a href="/demo/">Demo</a><a href="https://github.com/tylina/tylina-issues/issues/new/choose"><span data-lang-content="zh">反馈</span><span data-lang-content="en">Feedback</span></a></nav>
+      <div class="language-picker" data-language-picker>
+        <button class="language-trigger" type="button" data-language-toggle aria-haspopup="menu" aria-expanded="false" aria-label="Choose language"><i data-lucide="globe-2" aria-hidden="true"></i></button>
+        <div class="language-menu" data-language-menu role="menu" aria-label="Language" hidden>
+          <button type="button" role="menuitemradio" data-language-option="en"><span>English</span><span class="language-check" aria-hidden="true">✓</span></button>
+          <button type="button" role="menuitemradio" data-language-option="zh"><span>简体中文</span><span class="language-check" aria-hidden="true">✓</span></button>
+        </div>
+      </div>
+      <a class="header-download" href="/download/"><span data-lang-content="zh">下载</span><span data-lang-content="en">Download</span></a>
+    </div></header>
+
+    <main id="main" class="docs-main">
+      <section class="page-hero"><div class="container docs-hero">
+        <p class="eyebrow">Agent Client Protocol</p>
+        <h1><span data-lang-content="zh">在 Tylina 中连接 ACP Agent</span><span data-lang-content="en">Connect an ACP Agent to Tylina</span></h1>
+        <p><span data-lang-content="zh">Tylina 会发现受支持的本机 Agent，也允许你配置任意兼容 ACP 的 stdio 可执行程序。只有你明确选择后，Tylina 才会启动 Agent。</span><span data-lang-content="en">Tylina can discover supported local Agents and connect any compatible ACP stdio executable. Tylina never starts an Agent until you explicitly select it.</span></p>
+      </div></section>
+
+      <div class="container docs-layout">
+        <aside class="docs-toc" aria-label="On this page">
+          <strong><span data-lang-content="zh">本页内容</span><span data-lang-content="en">On this page</span></strong>
+          <a href="#choose"><span data-lang-content="zh">选择 Agent</span><span data-lang-content="en">Choose an Agent</span></a>
+          <a href="#custom"><span data-lang-content="zh">自定义连接</span><span data-lang-content="en">Custom connection</span></a>
+          <a href="#examples"><span data-lang-content="zh">常见启动方式</span><span data-lang-content="en">Common launch vectors</span></a>
+          <a href="#errors"><span data-lang-content="zh">错误与重试</span><span data-lang-content="en">Errors and retry</span></a>
+        </aside>
+
+        <article class="docs-article">
+          <section id="choose">
+            <h2><span data-lang-content="zh">选择，而不是隐式启动</span><span data-lang-content="en">Choose, don’t implicitly launch</span></h2>
+            <ol>
+              <li><span data-lang-content="zh">打开 Agent 面板并选择“新建会话”。</span><span data-lang-content="en">Open the Agent panel and choose New conversation.</span></li>
+              <li><span data-lang-content="zh">从内置、本机发现或已配置的连接中明确选择一个 Agent。</span><span data-lang-content="en">Explicitly select an included, detected, or configured Agent.</span></li>
+              <li><span data-lang-content="zh">若没有合适选项，打开“设置 → Agent 与 AI”。</span><span data-lang-content="en">If none is suitable, open Settings → Agent &amp; AI.</span></li>
+            </ol>
+            <div class="docs-note"><span data-lang-content="zh">“测试连接”只执行 ACP initialize 握手，不创建 session，也不发送 prompt。认证由所选 Agent 自己管理。</span><span data-lang-content="en">Test connection performs only the ACP initialize handshake. It creates no session and sends no prompt. Authentication remains owned by the selected Agent.</span></div>
+          </section>
+
+          <section id="custom">
+            <h2><span data-lang-content="zh">配置自定义 ACP 连接</span><span data-lang-content="en">Configure a custom ACP connection</span></h2>
+            <p><span data-lang-content="zh">填写显示名称、可执行文件，并把每个参数分别加入参数列表。不要粘贴一整条 shell command；Tylina 不通过 shell 解析命令。</span><span data-lang-content="en">Enter a display name, the executable and each argument separately. Do not paste one shell command; Tylina does not parse connection commands through a shell.</span></p>
+            <div class="docs-command-example">
+              <div><strong><span data-lang-content="zh">可执行文件</span><span data-lang-content="en">Executable</span></strong><code>opencode</code></div>
+              <div><strong><span data-lang-content="zh">参数 1</span><span data-lang-content="en">Argument 1</span></strong><code>acp</code></div>
+            </div>
+            <p><span data-lang-content="zh">若图形应用的 PATH 与终端不同，可填写可执行文件的绝对路径。保存后先使用“测试连接”。</span><span data-lang-content="en">If the graphical app has a different PATH from your terminal, use the executable’s absolute path. Test the connection before starting a conversation.</span></p>
+          </section>
+
+          <section id="examples">
+            <h2><span data-lang-content="zh">常见启动方式</span><span data-lang-content="en">Common launch vectors</span></h2>
+            <div class="docs-command-grid">
+              <div><strong>Kimi Code</strong><code>kimi</code><code>acp</code></div>
+              <div><strong>OpenCode</strong><code>opencode</code><code>acp</code></div>
+              <div><strong>Claude Code adapter</strong><code>claude-agent-acp</code><small><span data-lang-content="zh">无参数</span><span data-lang-content="en">No arguments</span></small></div>
+            </div>
+            <p><span data-lang-content="zh">更多实现与安装说明请查看</span><span data-lang-content="en">For more implementations and installation instructions, see the </span> <a href="https://agentclientprotocol.com/get-started/registry"><span data-lang-content="zh">ACP Agent Registry</span><span data-lang-content="en">ACP Agent Registry</span></a>.</p>
+          </section>
+
+          <section id="errors">
+            <h2><span data-lang-content="zh">错误、重新发送与重连</span><span data-lang-content="en">Errors, resend, and reconnect</span></h2>
+            <p><span data-lang-content="zh">ACP 没有专用的 retry 或 regenerate 方法。若单轮 prompt 因暂时性错误失败，Tylina 会保留当前 session，并允许把最后一次请求作为新的 <code>session/prompt</code> 重新发送。</span><span data-lang-content="en">ACP has no dedicated retry or regenerate method. If one prompt turn fails transiently, Tylina keeps the current session and can resend the last request as a new <code>session/prompt</code>.</span></p>
+            <p><span data-lang-content="zh">只有 Agent 进程退出或连接中断时才需要“重连”。如果重试后仍失败，请检查 Agent 自己的认证、配额与日志。</span><span data-lang-content="en">Reconnect is reserved for an Agent process exit or lost connection. If resending still fails, inspect the Agent’s authentication, quota, and logs.</span></p>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer"><div class="container footer-inner"><div><div class="footer-brand"><img src="/app.png" alt=""><span>Tylina</span></div><p class="copyright">Copyright © <span data-current-year>2026</span> OrangeX4. All rights reserved.</p></div><nav class="footer-nav" aria-label="Footer navigation"><a href="/"><span data-lang-content="zh">首页</span><span data-lang-content="en">Home</span></a><a href="/demo/">Demo</a><a href="https://github.com/tylina/tylina-issues"><span data-lang-content="zh">反馈</span><span data-lang-content="en">Feedback</span></a></nav></div></footer>
+  </body>
+</html>
