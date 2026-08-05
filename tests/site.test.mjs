@@ -106,6 +106,8 @@ test("presents the complete product story with honest interactive previews", asy
   assert.match(styles, /\.slide-canvas > img \{[^}]*height: auto;/);
   assert.match(styles, /\.source-lens \{[^}]*width: 100%;[^}]*margin-top: 20px;/);
   assert.doesNotMatch(styles, /\.source-lens \{[^}]*position: absolute;/);
+  assert.match(styles, /\.demo-recording-header > div \{ max-width: 900px; \}/);
+  assert.doesNotMatch(styles, /\.demo-recording-header \{[^}]*grid-template-columns/);
 });
 
 test("publishes all eight real template-backed use cases with attribution", async () => {
