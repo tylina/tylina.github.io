@@ -25,6 +25,9 @@ test("builds every public route with bilingual product copy", async () => {
   assert.match(demo, /看看文档优先的编辑体验。/);
   assert.match(demo, /See document-first editing in motion\./);
   assert.match(demo, /<img src="\/demo\.gif" alt="" width="1440" height="824"/);
+  assert.match(demo, /<img src="\/slides\.gif" alt="" width="1336" height="748"/);
+  assert.match(demo, /模板选择、Slides Mode 编辑、AI 润色与 Visual Diff 审阅/);
+  assert.match(demo, /template selection, Slides Mode editing, AI-assisted polishing, and Visual Diff review/);
   assert.match(demo, /href="\/demo\/" aria-current="page">Demo<\/a>/);
   assert.match(download, /href="\/demo\/">Demo<\/a>/);
   for (const page of [demo, download, acp]) {
@@ -141,7 +144,7 @@ test("publishes all eight real template-backed use cases with attribution", asyn
 });
 
 test("publishes the official brand assets and site metadata", async () => {
-  await Promise.all(["app.svg", "app.png", "demo.gif", "favicon.png", "THIRD_PARTY_NOTICES.txt", "robots.txt", "sitemap.xml", "site.webmanifest", ".nojekyll"].map((path) => access(new URL(path, dist))));
+  await Promise.all(["app.svg", "app.png", "demo.gif", "slides.gif", "favicon.png", "THIRD_PARTY_NOTICES.txt", "robots.txt", "sitemap.xml", "site.webmanifest", ".nojekyll"].map((path) => access(new URL(path, dist))));
   const home = await built("index.html");
   assert.match(home, /<img src="\/app\.png" alt="">/);
   assert.match(home, /<link rel="icon" href="\/favicon\.png" type="image\/png" sizes="64x64">/);

@@ -517,6 +517,17 @@ h2 { margin-bottom: 0; font-family: var(--serif); font-size: clamp(38px, 5vw, 60
 .page-hero h1 { max-width: 900px; margin-bottom: 20px; font-size: clamp(44px, 6vw, 72px); }
 .page-hero p { max-width: 700px; margin-bottom: 0; color: var(--muted); font-size: 18px; }
 .demo-section { padding-block: 64px 28px; }
+.demo-recordings { display: grid; gap: 92px; }
+.demo-recording-header {
+  display: grid;
+  align-items: start;
+  gap: 32px;
+  grid-template-columns: minmax(150px, 0.28fr) minmax(0, 0.72fr);
+  margin-bottom: 28px;
+}
+.demo-recording-header h2 { margin-bottom: 12px; font-size: clamp(30px, 4vw, 44px); }
+.demo-recording-header > div > p { max-width: 720px; margin-bottom: 0; color: var(--muted); font-size: 16px; }
+.demo-recording-kicker { margin: 8px 0 0; color: var(--accent-dark); font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
 .demo-showcase { margin: 0; }
 .demo-media {
   overflow: hidden;
@@ -707,6 +718,9 @@ h2 { margin-bottom: 0; font-family: var(--serif); font-size: clamp(38px, 5vw, 60
   .footer-nav { justify-content: flex-start; }
   .page-hero { padding-block: 64px 50px; }
   .demo-section { padding-block: 38px 8px; }
+  .demo-recordings { gap: 66px; }
+  .demo-recording-header { display: block; margin-bottom: 21px; }
+  .demo-recording-kicker { margin: 0 0 10px; }
   .demo-media { border-radius: 12px; }
   .demo-caption { display: grid; gap: 8px; margin-inline: 2px; }
   .demo-download-cta { padding-block: 54px 68px; }
