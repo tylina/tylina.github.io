@@ -29,20 +29,20 @@ test("builds every public route with bilingual product copy", async () => {
   assert.match(download, /href="\/demo\/">Demo<\/a>/);
   assert.match(download, /SHA256SUMS\.txt/);
   const releaseAssets = [
-    "Tylina-0.2.0-mac-arm64.dmg",
-    "Tylina-0.2.0-mac-arm64.zip",
-    "Tylina-0.2.0-mac-x64.dmg",
-    "Tylina-0.2.0-mac-x64.zip",
-    "Tylina-0.2.0-win-arm64.exe",
-    "Tylina-0.2.0-win-x64.exe",
-    "Tylina-0.2.0-linux-arm64.AppImage",
-    "Tylina-0.2.0-linux-arm64.deb",
-    "Tylina-0.2.0-linux-x86_64.AppImage",
-    "Tylina-0.2.0-linux-amd64.deb",
+    "Tylina-0.3.0-mac-arm64.dmg",
+    "Tylina-0.3.0-mac-arm64.zip",
+    "Tylina-0.3.0-mac-x64.dmg",
+    "Tylina-0.3.0-mac-x64.zip",
+    "Tylina-0.3.0-win-arm64.exe",
+    "Tylina-0.3.0-win-x64.exe",
+    "Tylina-0.3.0-linux-arm64.AppImage",
+    "Tylina-0.3.0-linux-arm64.deb",
+    "Tylina-0.3.0-linux-x86_64.AppImage",
+    "Tylina-0.3.0-linux-amd64.deb",
     "SHA256SUMS.txt",
   ];
   for (const asset of releaseAssets) {
-    assert.match(download, new RegExp(`releases/download/v0\\.2\\.0/${asset.replaceAll(".", "\\.")}`));
+    assert.match(download, new RegExp(`releases/download/v0\\.3\\.0/${asset.replaceAll(".", "\\.")}`));
   }
   assert.doesNotMatch(home, /0\.1\.0/);
   assert.doesNotMatch(download, /0\.1\.0/);
@@ -75,17 +75,17 @@ test("publishes a stable update manifest that matches the download page", async 
   assert.deepEqual(manifest, {
     schemaVersion: 1,
     channel: "stable",
-    version: "0.2.0",
+    version: "0.3.0",
     downloadUrl: "https://tylina.github.io/download/",
-    releaseNotesUrl: "https://github.com/tylina/tylina-issues/releases/tag/v0.2.0",
+    releaseNotesUrl: "https://github.com/tylina/tylina-issues/releases/tag/v0.3.0",
     highlights: {
       en: [
-        "Edit Typst from a document-first, typeset surface.",
-        "Use integrated Agent workflows, templates, and visual tools."
+        "Connect Codex, Claude Code, Kimi Code, OpenCode, or a custom ACP Agent.",
+        "Review app updates and resolve external file conflicts without losing either version."
       ],
       "zh-CN": [
-        "从文档优先的排版页面直接编辑 Typst。",
-        "使用内置 Agent 工作流、模板与可视化工具。"
+        "连接 Codex、Claude Code、Kimi Code、OpenCode 或自定义 ACP Agent。",
+        "在应用内查看更新，并在外部文件冲突时保留任一版本。"
       ]
     }
   });
