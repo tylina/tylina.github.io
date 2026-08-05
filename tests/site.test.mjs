@@ -62,6 +62,31 @@ test("publishes the official brand assets and site metadata", async () => {
   assert.match(home, /data-lucide="globe-2"/);
 });
 
+test("publishes a stable update manifest that matches the download page", async () => {
+  const manifest = JSON.parse(await built("updates/stable.json"));
+  const download = await built("download/index.html");
+
+  assert.deepEqual(manifest, {
+    schemaVersion: 1,
+    channel: "stable",
+    version: "0.2.0",
+    downloadUrl: "https://tylina.github.io/download/",
+    releaseNotesUrl: "https://github.com/tylina/tylina-issues/releases/tag/v0.2.0",
+    highlights: {
+      en: [
+        "Edit Typst from a document-first, typeset surface.",
+        "Use integrated Agent workflows, templates, and visual tools."
+      ],
+      "zh-CN": [
+        "从文档优先的排版页面直接编辑 Typst。",
+        "使用内置 Agent 工作流、模板与可视化工具。"
+      ]
+    }
+  });
+  assert.match(download, new RegExp(`Tylina ${manifest.version.replaceAll(".", "\\.")}`));
+  assert.match(download, new RegExp(`releases/download/v${manifest.version.replaceAll(".", "\\.")}/`));
+});
+
 test("does not claim that the proprietary desktop source is public", async () => {
   const home = await built("index.html");
   assert.doesNotMatch(home, /github\.com\/(?:OrangeX4|tylina)\/tylina(?:[\"'/]|$)/i);

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "channel": "stable",
+  "version": "0.2.0",
+  "downloadUrl": "https://tylina.github.io/download/",
+  "releaseNotesUrl": "https://github.com/tylina/tylina-issues/releases/tag/v0.2.0",
+  "highlights": {
+    "en": [
+      "Edit Typst from a document-first, typeset surface.",
+      "Use integrated Agent workflows, templates, and visual tools."
+    ],
+    "zh-CN": [
+      "从文档优先的排版页面直接编辑 Typst。",
+      "使用内置 Agent 工作流、模板与可视化工具。"
+    ]
+  }
+}
