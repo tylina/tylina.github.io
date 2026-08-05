@@ -13,6 +13,9 @@ test("builds every public route with bilingual product copy", async () => {
   ]);
   assert.match(home, /Typst，<br>所见即所得。/);
   assert.match(home, /WYSIWYG<br>for Typst\./);
+  assert.match(home, /无需在源码与预览之间来回切换/);
+  assert.match(home, /without switching back and forth between source and preview/);
+  assert.doesNotMatch(home, /让自己的 AI Agent 理解真实文档/);
   assert.match(home, /让 AI 看见文档/);
   assert.match(home, /AI that sees the document/);
   assert.match(home, /页面是编辑器/);
