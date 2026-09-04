@@ -42,20 +42,20 @@ test("builds every public route with bilingual product copy", async () => {
   }
   assert.match(download, /SHA256SUMS\.txt/);
   const releaseAssets = [
-    "Tylina-0.3.0-mac-arm64.dmg",
-    "Tylina-0.3.0-mac-arm64.zip",
-    "Tylina-0.3.0-mac-x64.dmg",
-    "Tylina-0.3.0-mac-x64.zip",
-    "Tylina-0.3.0-win-arm64.exe",
-    "Tylina-0.3.0-win-x64.exe",
-    "Tylina-0.3.0-linux-arm64.AppImage",
-    "Tylina-0.3.0-linux-arm64.deb",
-    "Tylina-0.3.0-linux-x86_64.AppImage",
-    "Tylina-0.3.0-linux-amd64.deb",
+    "Tylina-0.3.1-mac-arm64.dmg",
+    "Tylina-0.3.1-mac-arm64.zip",
+    "Tylina-0.3.1-mac-x64.dmg",
+    "Tylina-0.3.1-mac-x64.zip",
+    "Tylina-0.3.1-win-arm64.exe",
+    "Tylina-0.3.1-win-x64.exe",
+    "Tylina-0.3.1-linux-arm64.AppImage",
+    "Tylina-0.3.1-linux-arm64.deb",
+    "Tylina-0.3.1-linux-x86_64.AppImage",
+    "Tylina-0.3.1-linux-amd64.deb",
     "SHA256SUMS.txt",
   ];
   for (const asset of releaseAssets) {
-    assert.match(download, new RegExp(`releases/download/v0\\.3\\.0/${asset.replaceAll(".", "\\.")}`));
+    assert.match(download, new RegExp(`releases/download/v0\\.3\\.1/${asset.replaceAll(".", "\\.")}`));
   }
   assert.doesNotMatch(home, /Tylina 0\.1\.0/);
   assert.doesNotMatch(download, /0\.1\.0/);
@@ -163,17 +163,17 @@ test("publishes a stable update manifest that matches the download page", async 
   assert.deepEqual(manifest, {
     schemaVersion: 1,
     channel: "stable",
-    version: "0.3.0",
+    version: "0.3.1",
     downloadUrl: "https://tylina.github.io/download/",
-    releaseNotesUrl: "https://github.com/tylina/tylina-issues/releases/tag/v0.3.0",
+    releaseNotesUrl: "https://github.com/tylina/tylina-issues/releases/tag/v0.3.1",
     highlights: {
       en: [
-        "Connect Codex, Claude Code, Kimi Code, OpenCode, or a custom ACP Agent.",
-        "Review app updates and resolve external file conflicts without losing either version."
+        "Downloads are more than 50% smaller, while the full editor and native Typst workflow remain intact.",
+        "Use a system Codex or connect Claude Code, Kimi Code, OpenCode, and custom ACP Agents."
       ],
       "zh-CN": [
-        "连接 Codex、Claude Code、Kimi Code、OpenCode 或自定义 ACP Agent。",
-        "在应用内查看更新，并在外部文件冲突时保留任一版本。"
+        "安装包缩小超过 50%，完整编辑器与原生 Typst 工作流保持不变。",
+        "使用本机 Codex，或连接 Claude Code、Kimi Code、OpenCode 与自定义 ACP Agent。"
       ]
     }
   });
