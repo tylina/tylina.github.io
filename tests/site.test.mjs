@@ -6,6 +6,24 @@ const dist = new URL("../dist/", import.meta.url);
 const source = new URL("../", import.meta.url);
 const built = (path) => readFile(new URL(path, dist), "utf8");
 
+test("keeps the introduction at the root and installs the pinned editor at /app/", async () => {
+  const manifest = JSON.parse(await readFile(new URL("web-app.json", source), "utf8"));
+  assert.deepEqual(JSON.parse(await built("app/build.json")), manifest);
+  const home = await built("index.html");
+  assert.match(home, /href="\/app\/"/);
+  assert.match(home, /Open Web editor/);
+  assert.match(home, /打开 Web 编辑器/);
+  assert.match(home, /href="\/download\/"/);
+  assert.doesNotMatch(home, /tylina-embed\.js|compiler-worker|language-service-worker/);
+  for (const entry of ["index.html", "embed.html", "presenter.html", "tylina-embed.js",
+    "agent-skills/manifest.json", "web-templates/catalog.json"]) {
+    await access(new URL(`app/${entry}`, dist));
+  }
+  const app = await built("app/index.html");
+  assert.match(app, /\.\/assets\//);
+  assert.match(app, /<title>Tylina<\/title>/);
+});
+
 test("builds every public route with bilingual product copy", async () => {
   const [home, demo, download, acp, notFound] = await Promise.all([
     built("index.html"), built("demo/index.html"), built("download/index.html"),

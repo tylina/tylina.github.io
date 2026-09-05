@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tylina — WYSIWYG and AI-native Typst</title>
-    <meta name="description" content="Tylina is a document-first, AI-native Typst desktop editor for writing, slides, and beautifully typeset work.">
+    <meta name="description" content="Tylina is a document-first, AI-native Typst editor for Web and desktop. Write, make slides, and create beautifully typeset work.">
     <meta name="theme-color" content="#fafafa">
     <link rel="canonical" href="https://tylina.github.io/">
     <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
@@ -37,7 +37,7 @@
             <button type="button" role="menuitemradio" data-language-option="zh"><span>简体中文</span><span class="language-check" aria-hidden="true">✓</span></button>
           </div>
         </div>
-        <a class="header-download" href="/download/"><span data-lang-content="zh">下载</span><span data-lang-content="en">Download</span></a>
+        <a class="header-download" href="/app/"><span data-lang-content="zh">开始使用</span><span data-lang-content="en">Open editor</span></a>
       </div>
     </header>
 
@@ -51,10 +51,11 @@
             <span data-lang-content="en">Click, type, select, and revise directly on the typeset page—without switching back and forth between source and preview. Full Typst source remains within reach whenever you need it.</span>
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="/download/"><span data-lang-content="zh">免费下载</span><span data-lang-content="en">Download free</span></a>
+            <a class="button button-primary" href="/app/"><span data-lang-content="zh">打开 Web 编辑器</span><span data-lang-content="en">Open Web editor</span></a>
+            <a class="button" href="/download/"><span data-lang-content="zh">下载桌面应用</span><span data-lang-content="en">Download desktop app</span></a>
             <a class="button" href="/demo/"><span data-lang-content="zh">观看编辑演示</span><span data-lang-content="en">Watch the editing demo</span></a>
           </div>
-          <p class="hero-note"><span data-lang-content="zh">macOS · Windows · Linux　无需账号，文档留在本地</span><span data-lang-content="en">macOS · Windows · Linux　No account. Your documents stay local.</span></p>
+          <p class="hero-note"><span data-lang-content="zh">Web · macOS · Windows · Linux　无需账号，文档留在本地</span><span data-lang-content="en">Web · macOS · Windows · Linux　No account. Your documents stay local.</span></p>
         </div>
 
         <div class="product-visual" aria-label="Tylina document editing preview">
@@ -94,7 +95,7 @@
         <div class="container principle-grid">
           <div class="principle"><strong><span data-lang-content="zh">页面是编辑器</span><span data-lang-content="en">The page is the editor</span></strong><span data-lang-content="zh">光标、选区、输入与格式，都发生在排版结果上。</span><span data-lang-content="en">Caret, selection, input, and formatting live on the typeset result.</span></div>
           <div class="principle"><strong><span data-lang-content="zh">源码是唯一事实</span><span data-lang-content="en">Source stays canonical</span></strong><span data-lang-content="zh">Typst 源码和资源始终是文档本身，不被私有格式锁定。</span><span data-lang-content="en">Typst source and resources remain the document—never a private format.</span></div>
-          <div class="principle"><strong><span data-lang-content="zh">AI 是协作者</span><span data-lang-content="en">AI is a collaborator</span></strong><span data-lang-content="zh">选择自己的 ACP Agent，审阅每次修改与编译结果。</span><span data-lang-content="en">Choose your own ACP agent and review every edit and compile result.</span></div>
+          <div class="principle"><strong><span data-lang-content="zh">AI 是协作者</span><span data-lang-content="en">AI is a collaborator</span></strong><span data-lang-content="zh">连接自己的模型或 Agent，审阅每次修改与编译结果。</span><span data-lang-content="en">Connect your own model or agent and review every edit and compile result.</span></div>
         </div>
       </section>
 
@@ -155,7 +156,7 @@
               <p class="section-label"><span data-lang-content="zh">AI 原生</span><span data-lang-content="en">AI native</span></p>
               <h2><span data-lang-content="zh">让 AI 看见文档，<br>也看见修改结果。</span><span data-lang-content="en">AI that sees the document<br>and the result.</span></h2>
             </div>
-            <p class="section-intro"><span data-lang-content="zh">Tylina 通过 ACP 连接 Codex、Claude Code、Kimi Code、OpenCode 或自定义 Agent，并用 Skills 与 MCP 提供当前文档的真实上下文。</span><span data-lang-content="en">Tylina connects Codex, Claude Code, Kimi Code, OpenCode, or a custom agent through ACP, then exposes real document context through Skills and MCP.</span></p>
+            <p class="section-intro"><span data-lang-content="zh">Web 版可填写自己的 API Key 连接 DeepSeek 等模型，用共享的文档工具与 Skills 完成修改、编译和检查。桌面版还可通过 ACP 连接 Codex、Claude Code、Kimi Code、OpenCode 或自定义 Agent。</span><span data-lang-content="en">In the Web editor, connect a model such as DeepSeek with your API key and use shared document tools and Skills to edit, compile, and check your work. On desktop, connect Codex, Claude Code, Kimi Code, OpenCode, or a custom agent through ACP.</span></p>
           </div>
 
           <div class="agent-showcase interactive-demo" data-agent-preview data-ai-state="improve">
@@ -216,7 +217,7 @@
             <button type="button" role="tab" data-ai-task="improve" aria-selected="true"><i data-lucide="wand-sparkles" aria-hidden="true"></i><span data-lang-content="zh">改进选区</span><span data-lang-content="en">Improve selection</span></button>
             <button type="button" role="tab" data-ai-task="explain" aria-selected="false"><i data-lucide="list-checks" aria-hidden="true"></i><span data-lang-content="zh">总结文档</span><span data-lang-content="en">Summarize document</span></button>
             <button type="button" role="tab" data-ai-task="deck" aria-selected="false"><i data-lucide="presentation" aria-hidden="true"></i><span data-lang-content="zh">创建 Slides</span><span data-lang-content="en">Create slides</span></button>
-            <a href="/docs/acp/"><i data-lucide="settings-2" aria-hidden="true"></i><span data-lang-content="zh">连接自己的 ACP Agent</span><span data-lang-content="en">Connect your own ACP agent</span></a>
+            <a href="/docs/acp/"><i data-lucide="settings-2" aria-hidden="true"></i><span data-lang-content="zh">在桌面版连接 ACP Agent</span><span data-lang-content="en">Connect an ACP agent on desktop</span></a>
           </div>
         </div>
       </section>

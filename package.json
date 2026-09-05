@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/install-web-app.mjs",
     "preview": "vite preview",
     "test": "npm run build && node --test tests/site.test.mjs"
   },
