@@ -1,6 +1,7 @@
 /node_modules
 /coverage
 /dist
+/.web-artifacts
 /.vinext
 /.wrangler
 .DS_Store

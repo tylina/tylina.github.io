@@ -731,3 +731,6 @@ h2 { margin-bottom: 0; font-family: var(--serif); font-size: clamp(38px, 5vw, 60
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
+.harness-downloads { padding-top: 32px; padding-bottom: 72px; border-top: 1px solid var(--line); }
+.harness-downloads > p { max-width: 760px; line-height: 1.65; }
+.harness-install { padding: 16px; overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-subtle); font-family: var(--mono); font-size: 13px; line-height: 1.7; }
