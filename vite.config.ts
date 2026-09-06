@@ -1,7 +1,15 @@
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
+import { renderSiteHeader } from "./src/site-header.js";
 
 export default defineConfig({
+  plugins: [{
+    name: "shared-site-header",
+    transformIndexHtml: {
+      order: "pre",
+      handler: (html, context) => html.replace("<!-- tylina:site-header -->", renderSiteHeader(context.path)),
+    },
+  }],
   build: {
     rollupOptions: {
       input: {

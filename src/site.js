@@ -11,6 +11,7 @@ import {
   Globe2,
   LayoutTemplate,
   ListChecks,
+  Menu,
   MousePointerClick,
   NotebookPen,
   Presentation,
@@ -20,6 +21,7 @@ import {
   WandSparkles,
   createIcons,
 } from "lucide";
+import { setupSiteNavigation } from "./site-navigation.js";
 
 const languageKey = "tylina-language";
 const root = document.documentElement;
@@ -38,6 +40,7 @@ createIcons({
     Globe2,
     LayoutTemplate,
     ListChecks,
+    Menu,
     MousePointerClick,
     NotebookPen,
     Presentation,
@@ -65,6 +68,10 @@ function setLanguage(language, persist = true) {
   document.querySelectorAll("[data-language-option]").forEach((option) => {
     option.setAttribute("aria-checked", String(option.dataset.languageOption === language));
   });
+  document.querySelector(".site-nav")?.setAttribute("aria-label", language === "zh" ? "主导航" : "Primary navigation");
+  document.querySelector(".site-nav-toggle")?.setAttribute("aria-label", language === "zh" ? "导航" : "Navigation");
+  document.querySelector(".brand")?.setAttribute("aria-label", language === "zh" ? "Tylina 主页" : "Tylina home");
+  document.querySelector("[data-language-menu]")?.setAttribute("aria-label", language === "zh" ? "语言" : "Language");
 }
 
 setLanguage(preferredLanguage(), false);
@@ -77,12 +84,17 @@ function closeLanguagePicker(picker, restoreFocus = false) {
   if (restoreFocus) trigger.focus();
 }
 
+const navigation = setupSiteNavigation(() => {
+  document.querySelectorAll("[data-language-picker]").forEach((picker) => closeLanguagePicker(picker));
+});
+
 document.querySelectorAll("[data-language-picker]").forEach((picker) => {
   const trigger = picker.querySelector("[data-language-toggle]");
   const menu = picker.querySelector("[data-language-menu]");
   const options = [...picker.querySelectorAll("[data-language-option]")];
 
   trigger.addEventListener("click", () => {
+    navigation.close();
     const willOpen = menu.hidden;
     document.querySelectorAll("[data-language-picker]").forEach((otherPicker) => {
       if (otherPicker !== picker) closeLanguagePicker(otherPicker);
@@ -109,6 +121,9 @@ document.querySelectorAll("[data-language-picker]").forEach((picker) => {
 
   picker.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeLanguagePicker(picker, true);
+  });
+  picker.addEventListener("focusout", (event) => {
+    if (!picker.contains(event.relatedTarget)) closeLanguagePicker(picker);
   });
 });
 
