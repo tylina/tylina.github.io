@@ -4,7 +4,14 @@ import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import test from 'node:test';
-import { measureDirectory, readVerifiedArtifact, retainWebAssets } from '../scripts/web-artifacts.mjs';
+import { measureDirectory, readVerifiedArtifact, retainWebAssets, validateWebArtifact } from '../scripts/web-artifacts.mjs';
+
+test('the bundled font library fits bounded compressed and unpacked artifact budgets', async () => {
+  const manifest = JSON.parse(await readFile(new URL('../web-app.json', import.meta.url)));
+  assert.doesNotThrow(() => validateWebArtifact(manifest));
+  assert.throws(() => validateWebArtifact({ ...manifest, archive: { ...manifest.archive, bytes: 384 * 1024 * 1024 + 1 } }));
+  assert.throws(() => validateWebArtifact({ ...manifest, uncompressedBytes: 512 * 1024 * 1024 + 1 }));
+});
 
 async function fixture(t) {
   const root = await mkdtemp(join(tmpdir(), 'tylina-artifact-test-'));

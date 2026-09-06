@@ -8,7 +8,7 @@ export function validateWebArtifact(manifest) {
   const url = `https://github.com/tylina/tylina-issues/releases/download/${tag}/tylina-web.tar.gz`;
   if (manifest?.schemaVersion !== 1 || !/^[0-9a-f]{40}$/u.test(manifest.revision) || manifest.tag !== tag ||
     manifest.archive?.url !== url || !/^[0-9a-f]{64}$/u.test(manifest.archive?.sha256) ||
-    !Number.isSafeInteger(manifest.archive?.bytes) || manifest.archive.bytes <= 0 || manifest.archive.bytes > 256 * 1024 * 1024 ||
+    !Number.isSafeInteger(manifest.archive?.bytes) || manifest.archive.bytes <= 0 || manifest.archive.bytes > 384 * 1024 * 1024 ||
     !Number.isSafeInteger(manifest.uncompressedBytes) || manifest.uncompressedBytes <= 0 || manifest.uncompressedBytes > 512 * 1024 * 1024 ||
     !Number.isSafeInteger(manifest.files) || manifest.files <= 0 || manifest.files > 20_000) {
     throw new Error('Invalid pinned Web application artifact');
