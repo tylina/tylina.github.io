@@ -22,9 +22,14 @@ const extract = async (item, target, override) => {
   await writeFile(archive, bytes);
   await mkdir(target, { recursive: true });
   // Only exact publisher-owned, checksum-verified archives reach extraction.
-  execFileSync('tar', ['-xzf', archive, '-C', target, '--no-same-owner'], { stdio: 'inherit' });
+  // Published macOS archives can carry AppleDouble sidecars. They are not part of
+  // the measured application tree; exact counts below still reject omitted app data.
+  execFileSync('tar', ['-xzf', archive, '-C', target, '--no-same-owner', '--exclude=._*'],
+    { stdio: ['ignore', 'ignore', 'pipe'], maxBuffer: 4 * 1024 * 1024 });
   const size = await measureDirectory(target);
-  if (size.files !== item.files || size.bytes !== item.uncompressedBytes) throw new Error('Unpacked Web artifact does not match its manifest');
+  if (size.files !== item.files || size.bytes !== item.uncompressedBytes) {
+    throw new Error(`Unpacked Web artifact does not match its manifest: ${size.files}/${item.files} files, ${size.bytes}/${item.uncompressedBytes} bytes`);
+  }
 };
 try {
   const target = join(root, 'dist/app');
