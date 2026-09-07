@@ -661,7 +661,7 @@ h2 { margin-bottom: 0; font-family: var(--serif); font-size: clamp(38px, 5vw, 60
   .release-summary { max-width: 520px; }
   .docs-layout { gap: 36px; grid-template-columns: 170px minmax(0, 1fr); }
 }
-@media (max-width: 900px) {
+@media (max-width: 1080px) {
   .header-inner { gap: 12px; }
   .site-nav-toggle { display: inline-grid; }
   .site-nav-links {

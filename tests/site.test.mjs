@@ -58,6 +58,11 @@ test("builds every public route with bilingual product copy", async () => {
     assert.match(page, /href="\/#scenes"/);
     assert.doesNotMatch(page, /href="\/#writing"|href="\/#features"/);
   }
+  for (const page of [home, demo, download, acp]) {
+    assert.match(page, /href="\/download\/#harness"/);
+    assert.match(page, /DSH Plugin/);
+  }
+  assert.match(download, /id="harness"/);
   assert.match(download, /SHA256SUMS\.txt/);
   const releaseAssets = [
     "Tylina-0.4.0-mac-arm64.dmg",

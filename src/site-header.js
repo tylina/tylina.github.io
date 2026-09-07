@@ -6,6 +6,7 @@ const links = [
   ["/#slides", "Slides"],
   ["/#scenes", bilingual("使用场景", "Use cases")],
   ["/demo/", "Demo"],
+  ["/download/#harness", bilingual("DSH 插件", "DSH Plugin")],
   ["/download/", bilingual("桌面下载", "Download")],
 ];
 

@@ -89,3 +89,5 @@
   .download-page .site-footer { background:var(--paper); border-color:var(--line); }
   .download-page .language-trigger:hover, .download-page .site-nav-toggle:hover { background:var(--surface-subtle); }
 }
+
+#harness { scroll-margin-top: 92px; }

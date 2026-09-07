@@ -3,7 +3,7 @@ export function setupSiteNavigation(closeLanguagePickers) {
   if (!nav) return { close() {} };
   const toggle = nav.querySelector(".site-nav-toggle");
   const links = nav.querySelector(".site-nav-links");
-  const compact = matchMedia("(max-width: 900px)");
+  const compact = matchMedia("(max-width: 1080px)");
   // CSS can hide the active link before matchMedia fires, moving focus to body.
   // Keep its ownership until focus explicitly enters a different control.
   let focusOwner = null;
