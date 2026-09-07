@@ -10,65 +10,52 @@
     <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
     <link rel="apple-touch-icon" href="/app.png">
     <link rel="stylesheet" href="/src/styles.css">
+    <link rel="stylesheet" href="/src/download.css">
     <script type="module" src="/src/site.js"></script>
+    <script type="module" src="/src/download.js"></script>
   </head>
-  <body>
+  <body class="download-page">
     <a class="skip-link" href="#main"><span data-lang-content="zh">跳到正文</span><span data-lang-content="en">Skip to content</span></a>
     <!-- tylina:site-header -->
-    <main id="main">
-      <section class="page-hero"><div class="container">
-        <p class="eyebrow"><span data-lang-content="zh">0.4.0 · Web 已上线</span><span data-lang-content="en">0.4.0 · Available on the Web</span></p>
-        <h1><span data-lang-content="zh">下载 Tylina</span><span data-lang-content="en">Download Tylina</span></h1>
-        <p><span data-lang-content="zh"><a href="/app/">立即使用 Tylina 0.4.0 Web 版</a>，或下载下方已发布的桌面版本。</span><span data-lang-content="en"><a href="/app/">Start with Tylina 0.4.0 on the Web</a>, or download a released desktop build below.</span></p>
-      </div></section>
-      <section class="container release-panel">
-        <aside class="release-summary">
-          <p class="release-version">Tylina 0.3.1</p>
-          <h2><span data-lang-content="zh">桌面开发预览版</span><span data-lang-content="en">Desktop development preview</span></h2>
-          <p><span data-lang-content="zh">当前版本用于提前体验和反馈，功能与界面在正式发布前仍可能调整。</span><span data-lang-content="en">This build is for early use and feedback. Features and interface details may still change before the stable release.</span></p>
-          <a class="button button-primary" href="https://github.com/tylina/tylina-issues/releases"><span data-lang-content="zh">打开 Releases</span><span data-lang-content="en">Open Releases</span></a>
-          <a class="button" href="https://github.com/tylina/tylina-issues/issues/new/choose"><span data-lang-content="zh">报告问题</span><span data-lang-content="en">Report an issue</span></a>
-        </aside>
-        <div>
-          <div class="platform-list">
-            <article class="platform"><h3>macOS</h3><div><p><span data-lang-content="zh">Apple 芯片与 Intel，均提供磁盘映像和压缩包。</span><span data-lang-content="en">Apple silicon and Intel, available as disk images and archives.</span></p><div class="download-links">
-              <a class="download-link" data-download-asset="Tylina-0.3.1-mac-arm64.dmg" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-mac-arm64.dmg"><i data-lucide="download" aria-hidden="true"></i><span>arm64 DMG</span></a>
-              <a class="download-link" data-download-asset="Tylina-0.3.1-mac-arm64.zip" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-mac-arm64.zip"><i data-lucide="download" aria-hidden="true"></i><span>arm64 ZIP</span></a>
-              <a class="download-link" data-download-asset="Tylina-0.3.1-mac-x64.dmg" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-mac-x64.dmg"><i data-lucide="download" aria-hidden="true"></i><span>x64 DMG</span></a>
-              <a class="download-link" data-download-asset="Tylina-0.3.1-mac-x64.zip" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-mac-x64.zip"><i data-lucide="download" aria-hidden="true"></i><span>x64 ZIP</span></a>
-            </div><p class="platform-note"><span data-lang-content="zh">当前预览版尚未经过 Apple 公证。首次启动被阻止时，请在“系统设置 → 隐私与安全性”中选择“仍要打开”。<a href="https://support.apple.com/guide/mac-help/mh40617/mac">查看 Apple 官方步骤</a></span><span data-lang-content="en">The current preview is not yet notarized by Apple. If the first launch is blocked, choose Open Anyway in System Settings → Privacy &amp; Security. <a href="https://support.apple.com/guide/mac-help/mh40617/mac">Read Apple’s instructions</a></span></p></div></article>
-            <article class="platform"><h3>Windows</h3><div><p><span data-lang-content="zh">适用于 ARM64 与 x64 的桌面安装程序。</span><span data-lang-content="en">Desktop installers for ARM64 and x64 systems.</span></p><div class="download-links">
-              <a class="download-link" data-download-asset="Tylina-0.3.1-win-arm64.exe" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-win-arm64.exe"><i data-lucide="download" aria-hidden="true"></i><span>arm64 EXE</span></a>
-              <a class="download-link" data-download-asset="Tylina-0.3.1-win-x64.exe" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-win-x64.exe"><i data-lucide="download" aria-hidden="true"></i><span>x64 EXE</span></a>
-            </div></div></article>
-            <article class="platform"><h3>Linux</h3><div><p><span data-lang-content="zh">适用于 ARM64 与 x64，提供 AppImage 与 Debian 软件包。</span><span data-lang-content="en">ARM64 and x64 builds in AppImage and Debian package formats.</span></p><div class="download-links">
-              <a class="download-link" data-download-asset="Tylina-0.3.1-linux-arm64.AppImage" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-linux-arm64.AppImage"><i data-lucide="download" aria-hidden="true"></i><span>arm64 AppImage</span></a>
-              <a class="download-link" data-download-asset="Tylina-0.3.1-linux-arm64.deb" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-linux-arm64.deb"><i data-lucide="download" aria-hidden="true"></i><span>arm64 DEB</span></a>
-              <a class="download-link" data-download-asset="Tylina-0.3.1-linux-x86_64.AppImage" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-linux-x86_64.AppImage"><i data-lucide="download" aria-hidden="true"></i><span>x64 AppImage</span></a>
-              <a class="download-link" data-download-asset="Tylina-0.3.1-linux-amd64.deb" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-linux-amd64.deb"><i data-lucide="download" aria-hidden="true"></i><span>x64 DEB</span></a>
-            </div></div></article>
+    <main id="main" class="download-main container">
+      <header class="download-heading">
+        <p class="eyebrow"><span data-lang-content="zh">你的下一份作品，从这里开始</span><span data-lang-content="en">Your next document starts here</span></p>
+        <h1><span data-lang-content="zh">下载 Tylina</span><span data-lang-content="en">Get Tylina</span></h1>
+        <p><span data-lang-content="zh">在桌面专注写作，或直接在浏览器开始。</span><span data-lang-content="en">A place for focused writing, on your desktop or in your browser.</span></p>
+      </header>
+      <section class="desktop-download" aria-labelledby="desktop-title">
+        <div class="desktop-intro"><img src="/app.png" width="64" height="64" alt="">
+          <h2 id="desktop-title">Tylina <span data-lang-content="zh">桌面版</span><span data-lang-content="en">Desktop</span></h2>
+          <span class="download-version">Tylina 0.3.1 · <span data-lang-content="zh">开发预览版</span><span data-lang-content="en">Development preview</span></span>
+          <p><span data-lang-content="zh">本地文件、原生编译，以及你的写作工具和 AI 助手。</span><span data-lang-content="en">Local files, native compilation, and your writing tools and AI assistant.</span></p>
+          <a class="quiet-link" href="https://github.com/tylina/tylina-issues/releases"><span data-lang-content="zh">版本说明</span><span data-lang-content="en">Release notes</span><i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+        </div>
+        <div class="desktop-options">
+          <div class="platform-picker" data-platform-picker aria-label="Operating system">
+            <button type="button" id="platform-mac" data-platform="mac" aria-controls="download-mac">macOS</button><button type="button" id="platform-windows" data-platform="windows" aria-controls="download-windows">Windows</button><button type="button" id="platform-linux" data-platform="linux" aria-controls="download-linux">Linux</button>
           </div>
-          <div class="notice"><span data-lang-content="zh">安装前请阅读对应版本说明，并使用同一 Release 中的 <a class="checksum-link" data-download-asset="SHA256SUMS.txt" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/SHA256SUMS.txt"><i data-lucide="download" aria-hidden="true"></i><code>SHA256SUMS.txt</code></a> 校验下载文件。签名状态以版本说明为准。</span><span data-lang-content="en">Read the release notes before installing and verify downloads with <a class="checksum-link" data-download-asset="SHA256SUMS.txt" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/SHA256SUMS.txt"><i data-lucide="download" aria-hidden="true"></i><code>SHA256SUMS.txt</code></a> from the same release. Signing status is stated in the release notes.</span></div>
+          <section class="download-platform" id="download-mac" data-platform-panel="mac" aria-labelledby="platform-mac"><h2 class="platform-fallback">macOS</h2><div class="download-architectures"><div class="download-architecture"><h3><span data-lang-content="zh">Apple 芯片</span><span data-lang-content="en">Apple silicon</span></h3><a class="button button-primary" data-download-asset="Tylina-0.3.1-mac-arm64.dmg" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-mac-arm64.dmg"><i data-lucide="download" aria-hidden="true"></i>DMG</a><span class="format-alternative"><a class="format-link" data-download-asset="Tylina-0.3.1-mac-arm64.zip" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-mac-arm64.zip">ZIP</a></span></div><div class="download-architecture"><h3>Intel</h3><a class="button button-primary" data-download-asset="Tylina-0.3.1-mac-x64.dmg" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-mac-x64.dmg"><i data-lucide="download" aria-hidden="true"></i>DMG</a><span class="format-alternative"><a class="format-link" data-download-asset="Tylina-0.3.1-mac-x64.zip" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-mac-x64.zip">ZIP</a></span></div></div><p class="download-platform-note"><span data-lang-content="zh">尚未经过 Apple 公证。首次启动被阻止时，在“系统设置 → 隐私与安全性”中选择“仍要打开”。<a href="https://support.apple.com/guide/mac-help/mh40617/mac">Apple 官方说明</a></span><span data-lang-content="en">Not yet notarized by Apple. If launch is blocked, choose Open Anyway in System Settings → Privacy &amp; Security. <a href="https://support.apple.com/guide/mac-help/mh40617/mac">Apple’s instructions</a></span></p></section><section class="download-platform" id="download-windows" data-platform-panel="windows" aria-labelledby="platform-windows"><h2 class="platform-fallback">Windows</h2><div class="download-architectures"><div class="download-architecture"><h3>x64</h3><a class="button button-primary" data-download-asset="Tylina-0.3.1-win-x64.exe" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-win-x64.exe"><i data-lucide="download" aria-hidden="true"></i><span data-lang-content="zh">安装程序</span><span data-lang-content="en">Installer</span></a></div><div class="download-architecture"><h3>ARM64</h3><a class="button button-primary" data-download-asset="Tylina-0.3.1-win-arm64.exe" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-win-arm64.exe"><i data-lucide="download" aria-hidden="true"></i><span data-lang-content="zh">安装程序</span><span data-lang-content="en">Installer</span></a></div></div><p class="download-platform-note"><span data-lang-content="zh">请选择与电脑处理器对应的版本。</span><span data-lang-content="en">Choose the build that matches your computer’s processor.</span></p></section><section class="download-platform" id="download-linux" data-platform-panel="linux" aria-labelledby="platform-linux"><h2 class="platform-fallback">Linux</h2><div class="download-architectures"><div class="download-architecture"><h3>x64</h3><a class="button button-primary" data-download-asset="Tylina-0.3.1-linux-x86_64.AppImage" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-linux-x86_64.AppImage"><i data-lucide="download" aria-hidden="true"></i>AppImage</a><span class="format-alternative"><a class="format-link" data-download-asset="Tylina-0.3.1-linux-amd64.deb" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-linux-amd64.deb">DEB</a></span></div><div class="download-architecture"><h3>ARM64</h3><a class="button button-primary" data-download-asset="Tylina-0.3.1-linux-arm64.AppImage" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-linux-arm64.AppImage"><i data-lucide="download" aria-hidden="true"></i>AppImage</a><span class="format-alternative"><a class="format-link" data-download-asset="Tylina-0.3.1-linux-arm64.deb" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/Tylina-0.3.1-linux-arm64.deb">DEB</a></span></div></div><p class="download-platform-note"><span data-lang-content="zh">AppImage 适用于多种发行版；Ubuntu / Debian 也可选择 DEB。</span><span data-lang-content="en">Use AppImage across distributions, or DEB for Ubuntu / Debian.</span></p></section>
         </div>
+        <footer class="desktop-download-footer"><span><span data-lang-content="zh">其他版本与文件校验</span><span data-lang-content="en">Other releases & verification</span></span><a class="checksum-link" data-download-asset="SHA256SUMS.txt" href="https://github.com/tylina/tylina-issues/releases/download/v0.3.1/SHA256SUMS.txt">SHA256SUMS.txt</a><a href="https://github.com/tylina/tylina-issues/issues/new/choose"><span data-lang-content="zh">反馈问题</span><span data-lang-content="en">Report an issue</span></a></footer>
       </section>
-      <section class="container harness-downloads" id="harness" aria-labelledby="harness-title">
-        <p class="eyebrow"><span data-lang-content="zh">DeepSeek Harness 插件 · 预览版</span><span data-lang-content="en">DeepSeek Harness plugin · Preview</span></p>
-        <h2 id="harness-title"><span data-lang-content="zh">在 Agent 会话中编辑文档</span><span data-lang-content="en">Edit documents alongside your Agent</span></h2>
-        <p><span data-lang-content="zh">编辑器位于对话右侧，可调整宽度或单独打开窗口。两种版本都与当前会话共享项目文件，并提供 Tylina 文档工具、模板与完整 Skills；也可复制 MCP 连接配置，供其他客户端访问当前文档。适用于 Harness 0.1.2-rc.1，每个 profile 安装一种版本。</span><span data-lang-content="en">A resizable document panel opens beside your conversation, with an optional separate window. Both versions share the current session’s project files and include Tylina document tools, templates and the complete Skills library. You can also copy an MCP connection configuration for other clients to access the current document. For Harness 0.1.2-rc.1; install one version per profile.</span></p>
-        <div class="platform-list">
-          <article class="platform"><h3>WASM</h3><div>
-            <p><span data-lang-content="zh">在浏览器中编译，适合连接不同系统上的 Harness。</span><span data-lang-content="en">Compile in your browser while working with Harness on different operating systems.</span></p>
-            <a class="download-link" href="https://github.com/tylina/tylina-issues/releases/download/dsh-e25f3429e5ed/tylina-dsh-wasm-0.3.1.tgz"><i data-lucide="download" aria-hidden="true"></i><span>WASM · 323 MB</span></a>
-          </div></article>
-          <article class="platform"><h3><span data-lang-content="zh">原生编译</span><span data-lang-content="en">Native</span></h3><div>
-            <p><span data-lang-content="zh">在 Harness 服务器上运行原生编译器。此安装包适用于 macOS Apple Silicon。</span><span data-lang-content="en">Run native compilers on the Harness server. This package is for macOS Apple Silicon.</span></p>
-            <a class="download-link" href="https://github.com/tylina/tylina-issues/releases/download/dsh-e25f3429e5ed/tylina-dsh-native-0.3.1.tgz"><i data-lucide="download" aria-hidden="true"></i><span>macOS arm64 · 374 MB</span></a>
-          </div></article>
+      <section class="web-download" aria-labelledby="web-title">
+        <div class="edition-symbol"><i data-lucide="globe-2" aria-hidden="true"></i></div><div><h2 id="web-title"><span data-lang-content="zh">也可以，直接开始</span><span data-lang-content="en">Or, just start writing</span></h2><p><span data-lang-content="zh">Tylina 0.4.0 Web 版。无需安装，文档在浏览器中编译。</span><span data-lang-content="en">Tylina 0.4.0 for the Web. No installation; documents compile in your browser.</span></p></div>
+        <a class="button" href="/app/"><span data-lang-content="zh">打开 Web 编辑器</span><span data-lang-content="en">Open Web editor</span><i data-lucide="arrow-right" aria-hidden="true"></i></a>
+      </section>
+      <section class="harness-download" id="harness" aria-labelledby="harness-title">
+        <div class="harness-heading"><div><p class="eyebrow">DeepSeek Harness</p><h2 id="harness-title"><span data-lang-content="zh">与 Agent 并肩写作</span><span data-lang-content="en">Write beside your agent</span></h2></div><a class="quiet-link" href="https://github.com/tylina/dsh-tylina"><span data-lang-content="zh">插件指南</span><span data-lang-content="en">Plugin guide</span><i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+        <p><span data-lang-content="zh">与当前会话共享工作区，在侧栏里编辑文档。模板、Slides、文档工具与 Skills，都在这里。</span><span data-lang-content="en">Share your conversation’s workspace and edit in the sidebar. Templates, slides, document tools, and Skills come with you.</span></p>
+        <div class="harness-command"><div class="command-heading"><span>dsh-tylina <span class="download-version">0.4.1 · WASM</span></span><button type="button" data-copy-command aria-label="Copy installation command"><i data-lucide="copy" aria-hidden="true"></i></button></div>
+          <pre><code data-command>dsh plugin --profile web add dsh-tylina</code></pre>
+          <p class="command-feedback" role="status" aria-live="polite"></p>
         </div>
-        <p><span data-lang-content="zh">下载后，在已有的 Web profile 中安装：</span><span data-lang-content="en">After downloading, install into an existing Web profile:</span></p>
-        <pre class="harness-install"><code>dsh plugin --profile web add ./tylina-dsh-wasm-0.3.1.tgz
-dsh --profile web</code></pre>
-        <p><span data-lang-content="zh">使用原生版时替换上述安装包文件名。<a href="https://github.com/tylina/tylina-issues/releases/tag/dsh-e25f3429e5ed">安装说明与校验和</a>。也可以直接<a href="/app/">打开独立 Web 编辑器</a>。</span><span data-lang-content="en">Use the native archive filename for native compilation. <a href="https://github.com/tylina/tylina-issues/releases/tag/dsh-e25f3429e5ed">Installation notes and checksums</a>. You can also <a href="/app/">open the standalone Web editor</a>.</span></p>
+        <div class="harness-meta"><span><span data-lang-content="zh">安装后运行</span><span data-lang-content="en">Then run</span> <code>dsh web</code></span><a href="https://www.npmjs.com/package/dsh-tylina">npm <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+        <details class="download-details"><summary><span data-lang-content="zh">更新与原生编译版本</span><span data-lang-content="en">Updates & native compilation</span></summary>
+          <p><span data-lang-content="zh">更新插件，然后重启 Harness：</span><span data-lang-content="en">Update the plugin, then restart Harness:</span></p>
+          <pre><code>dsh plugin --profile web update dsh-tylina@latest</code></pre>
+          <p><span data-lang-content="zh">原生版 dsh-tylina-native 正在完成多平台发布。它在 Harness 主机上编译，编辑器与工具和 WASM 版相同。每个 profile 安装一种版本。</span><span data-lang-content="en">The native edition, dsh-tylina-native, is finishing its platform builds. It compiles on the Harness host and shares the same editor and tools. Install one edition per profile.</span></p>
+          <p>Node.js 22.19+ · Harness 0.1.2-rc.1 · Better Sidebar <span data-lang-content="zh">可选</span><span data-lang-content="en">optional</span></p>
+        </details>
       </section>
     </main>
     <footer class="site-footer"><div class="container footer-inner"><div><div class="footer-brand"><img src="/app.png" alt=""><span>Tylina</span></div><p class="copyright">Copyright © <span data-current-year>2026</span> OrangeX4. All rights reserved.</p></div><nav class="footer-nav" aria-label="Footer navigation"><a href="/"><span data-lang-content="zh">首页</span><span data-lang-content="en">Home</span></a><a href="/demo/">Demo</a><a href="https://github.com/tylina/tylina-issues"><span data-lang-content="zh">反馈</span><span data-lang-content="en">Feedback</span></a></nav></div></footer>
