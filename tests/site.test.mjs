@@ -51,14 +51,12 @@ test("builds every public route with bilingual product copy", async () => {
   assert.match(demo, /template selection, Slides Mode editing, AI-assisted polishing, and Visual Diff review/);
   assert.match(demo, /href="\/demo\/" aria-current="page">Demo<\/a>/);
   assert.match(download, /href="\/demo\/">Demo<\/a>/);
-  for (const page of [demo, download, acp]) {
-    assert.match(page, /href="\/#wysiwyg"/);
-    assert.match(page, /href="\/#ai"/);
-    assert.match(page, /href="\/#slides"/);
-    assert.match(page, /href="\/#scenes"/);
-    assert.doesNotMatch(page, /href="\/#writing"|href="\/#features"/);
-  }
   for (const page of [home, demo, download, acp]) {
+    const navigation = page.match(/<div class="site-nav-links"[^>]*>([\s\S]*?)<\/div>/)[1];
+    assert.deepEqual([...navigation.matchAll(/href="([^"]+)"/g)].map((match) => match[1]),
+      ["/", "/demo/", "https://github.com/tylina/tylina-skill", "/download/#harness", "/download/"]);
+    assert.match(navigation, /Overview/);
+    assert.match(navigation, /概览/);
     assert.match(page, /href="\/download\/#harness"/);
     assert.match(page, /DSH Plugin/);
   }

@@ -1,11 +1,9 @@
 const bilingual = (zh, en) => `<span data-lang-content="zh">${zh}</span><span data-lang-content="en">${en}</span>`;
 
 const links = [
-  ["/#wysiwyg", bilingual("所见即所得", "WYSIWYG")],
-  ["/#ai", bilingual("AI 原生", "AI native")],
-  ["/#slides", "Slides"],
-  ["/#scenes", bilingual("使用场景", "Use cases")],
+  ["/", bilingual("概览", "Overview")],
   ["/demo/", "Demo"],
+  ["https://github.com/tylina/tylina-skill", "Skill"],
   ["/download/#harness", bilingual("DSH 插件", "DSH Plugin")],
   ["/download/", bilingual("桌面下载", "Download")],
 ];
