@@ -63,20 +63,20 @@ test("builds every public route with bilingual product copy", async () => {
   assert.match(download, /id="harness"/);
   assert.match(download, /SHA256SUMS\.txt/);
   const releaseAssets = [
-    "Tylina-0.4.0-mac-arm64.dmg",
-    "Tylina-0.4.0-mac-arm64.zip",
-    "Tylina-0.4.0-mac-x64.dmg",
-    "Tylina-0.4.0-mac-x64.zip",
-    "Tylina-0.4.0-win-arm64.exe",
-    "Tylina-0.4.0-win-x64.exe",
-    "Tylina-0.4.0-linux-arm64.AppImage",
-    "Tylina-0.4.0-linux-arm64.deb",
-    "Tylina-0.4.0-linux-x86_64.AppImage",
-    "Tylina-0.4.0-linux-amd64.deb",
+    "Tylina-0.4.1-mac-arm64.dmg",
+    "Tylina-0.4.1-mac-arm64.zip",
+    "Tylina-0.4.1-mac-x64.dmg",
+    "Tylina-0.4.1-mac-x64.zip",
+    "Tylina-0.4.1-win-arm64.exe",
+    "Tylina-0.4.1-win-x64.exe",
+    "Tylina-0.4.1-linux-arm64.AppImage",
+    "Tylina-0.4.1-linux-arm64.deb",
+    "Tylina-0.4.1-linux-x86_64.AppImage",
+    "Tylina-0.4.1-linux-amd64.deb",
     "SHA256SUMS.txt",
   ];
   for (const asset of releaseAssets) {
-    assert.match(download, new RegExp(`releases/download/v0\\.4\\.0/${asset.replaceAll(".", "\\.")}`));
+    assert.match(download, new RegExp(`releases/download/v0\\.4\\.1/${asset.replaceAll(".", "\\.")}`));
   }
   assert.doesNotMatch(home, /Tylina 0\.1\.0/);
   assert.doesNotMatch(download, /0\.1\.0/);
@@ -184,17 +184,17 @@ test("publishes a stable update manifest that matches the download page", async 
   assert.deepEqual(manifest, {
     schemaVersion: 1,
     channel: "stable",
-    version: "0.4.0",
+    version: "0.4.1",
     downloadUrl: "https://tylina.github.io/download/",
-    releaseNotesUrl: "https://github.com/tylina/tylina-issues/releases/tag/v0.4.0",
+    releaseNotesUrl: "https://github.com/tylina/tylina-issues/releases/tag/v0.4.1",
     highlights: {
       en: [
-        "Write in the shared Web and desktop editor, with templates, Slides Mode, and document history.",
-        "Open GitHub or GitLab projects and work with an AI assistant; desktop also supports local ACP Agents."
+        "Connect external coding Agents to the live editor for selection-aware edits, rendered pages and exports.",
+        "Improved on-demand workspace files, document history, saving and cancellation, with matching native runtimes."
       ],
       "zh-CN": [
-        "Web 与桌面共用编辑器，支持模板库、Slides Mode 和文档版本历史。",
-        "打开 GitHub 或 GitLab 项目，与 AI 助手共同写作；桌面版还支持本地 ACP Agent。"
+        "连接外部编程 Agent，读取实时选区、精确编辑、查看渲染页面并导出文档。",
+        "改进工作区按需读取、文档历史、保存和取消处理，并提供匹配的原生运行时。"
       ]
     }
   });
