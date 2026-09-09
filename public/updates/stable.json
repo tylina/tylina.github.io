@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "downloadUrl": "https://tylina.github.io/download/",
-  "releaseNotesUrl": "https://github.com/tylina/tylina-issues/releases/tag/v0.4.1",
+  "releaseNotesUrl": "https://github.com/tylina/tylina-issues/releases/tag/v0.4.2",
   "highlights": {
     "en": [
-      "Connect external coding Agents to the live editor for selection-aware edits, rendered pages and exports.",
-      "Improved on-demand workspace files, document history, saving and cancellation, with matching native runtimes."
+      "Fixed the Preamble caret jumping backward while typing beyond the original document length.",
+      "Verified continuous typing, Chinese input, deletion, Undo/Redo, saving and recovery from invalid drafts."
     ],
     "zh-CN": [
-      "连接外部编程 Agent，读取实时选区、精确编辑、查看渲染页面并导出文档。",
-      "改进工作区按需读取、文档历史、保存和取消处理，并提供匹配的原生运行时。"
+      "修复 Preamble 输入超过原文长度后，光标回退、文字顺序异常的问题。",
+      "验证连续输入、中文输入、删除、撤销重做、保存和无效草稿恢复。"
     ]
   }
 }
