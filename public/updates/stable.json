@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "downloadUrl": "https://tylina.github.io/download/",
-  "releaseNotesUrl": "https://github.com/tylina/tylina-issues/releases/tag/v0.4.2",
+  "releaseNotesUrl": "https://github.com/tylina/tylina-issues/releases/tag/v0.4.3",
   "highlights": {
     "en": [
-      "Fixed the Preamble caret jumping backward while typing beyond the original document length.",
-      "Verified continuous typing, Chinese input, deletion, Undo/Redo, saving and recovery from invalid drafts."
+      "Simpler Agent tools: use native file editing, with Tylina providing document selection, compilation and rendering.",
+      "Fixed current-document editing scope, completion verification and DSH synchronization after external edits."
     ],
     "zh-CN": [
-      "修复 Preamble 输入超过原文长度后，光标回退、文字顺序异常的问题。",
-      "验证连续输入、中文输入、删除、撤销重做、保存和无效草稿恢复。"
+      "简化 Agent 工具：复用原生文件编辑能力，由 Tylina 提供文档选区、编译和渲染。",
+      "修复当前文档编辑范围、完成校验，以及 DSH 外部编辑后的文档同步。"
     ]
   }
 }

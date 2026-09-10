@@ -15,3 +15,7 @@ short `en` / `zh-CN` highlights in sync with the download page and release notes
 in-app notice; keep them concise and do not put Markdown or HTML in them. Future in-app installation metadata must use a
 new schema version and include authenticated artifact hashes or signatures; do not repurpose the current link-only schema
 for executable updates.
+
+Public desktop version labels and download links are generated from `public/updates/stable.json` at build time.
+Use `{{TYLINA_VERSION}}` in HTML; Web labels use `{{TYLINA_WEB_VERSION}}` from the pinned `web-app.json`.
+Do not hard-code release versions in individual pages. Publish and verify installers before updating the stable manifest.

@@ -6,6 +6,21 @@ const dist = new URL("../dist/", import.meta.url);
 const source = new URL("../", import.meta.url);
 const built = (path) => readFile(new URL(path, dist), "utf8");
 
+test("keeps every public version label consistent with the release manifests", async () => {
+  const stable = JSON.parse(await built("updates/stable.json"));
+  const web = JSON.parse(await built("app/build.json"));
+  for (const path of ["index.html", "demo/index.html", "download/index.html"]) {
+    const html = await built(path);
+    // Recording captions identify the version actually filmed, not the current release.
+    const currentCopy = html.replace(/<figcaption\b[^>]*>[\s\S]*?<\/figcaption>/g, "");
+    const labels = [...currentCopy.matchAll(/Tylina (\d+\.\d+\.\d+)/g)].map((match) => match[1]);
+    assert.ok(labels.length > 0, `${path} must display a version`);
+    assert.ok(labels.every((version) => version === stable.version ||
+      (path === "download/index.html" && version === web.version)), `${path}: stale version ${labels}`);
+    assert.doesNotMatch(html, /\{\{TYLINA_(?:WEB_)?VERSION\}\}/);
+  }
+});
+
 test("keeps the introduction at the root and installs the pinned editor at /app/", async () => {
   const manifest = JSON.parse(await readFile(new URL("web-app.json", source), "utf8"));
   assert.deepEqual(JSON.parse(await built("app/build.json")), manifest);
@@ -62,21 +77,22 @@ test("builds every public route with bilingual product copy", async () => {
   }
   assert.match(download, /id="harness"/);
   assert.match(download, /SHA256SUMS\.txt/);
+  const { version } = JSON.parse(await built("updates/stable.json"));
   const releaseAssets = [
-    "Tylina-0.4.2-mac-arm64.dmg",
-    "Tylina-0.4.2-mac-arm64.zip",
-    "Tylina-0.4.2-mac-x64.dmg",
-    "Tylina-0.4.2-mac-x64.zip",
-    "Tylina-0.4.2-win-arm64.exe",
-    "Tylina-0.4.2-win-x64.exe",
-    "Tylina-0.4.2-linux-arm64.AppImage",
-    "Tylina-0.4.2-linux-arm64.deb",
-    "Tylina-0.4.2-linux-x86_64.AppImage",
-    "Tylina-0.4.2-linux-amd64.deb",
+    `Tylina-${version}-mac-arm64.dmg`,
+    `Tylina-${version}-mac-arm64.zip`,
+    `Tylina-${version}-mac-x64.dmg`,
+    `Tylina-${version}-mac-x64.zip`,
+    `Tylina-${version}-win-arm64.exe`,
+    `Tylina-${version}-win-x64.exe`,
+    `Tylina-${version}-linux-arm64.AppImage`,
+    `Tylina-${version}-linux-arm64.deb`,
+    `Tylina-${version}-linux-x86_64.AppImage`,
+    `Tylina-${version}-linux-amd64.deb`,
     "SHA256SUMS.txt",
   ];
   for (const asset of releaseAssets) {
-    assert.match(download, new RegExp(`releases/download/v0\\.4\\.2/${asset.replaceAll(".", "\\.")}`));
+    assert.match(download, new RegExp(`releases/download/v${version.replaceAll(".", "\\.")}/${asset.replaceAll(".", "\\.")}`));
   }
   assert.doesNotMatch(home, /Tylina 0\.1\.0/);
   assert.doesNotMatch(download, /0\.1\.0/);
@@ -181,23 +197,16 @@ test("publishes a stable update manifest that matches the download page", async 
   const manifest = JSON.parse(await built("updates/stable.json"));
   const download = await built("download/index.html");
 
-  assert.deepEqual(manifest, {
-    schemaVersion: 1,
-    channel: "stable",
-    version: "0.4.2",
-    downloadUrl: "https://tylina.github.io/download/",
-    releaseNotesUrl: "https://github.com/tylina/tylina-issues/releases/tag/v0.4.2",
-    highlights: {
-      en: [
-        "Fixed the Preamble caret jumping backward while typing beyond the original document length.",
-        "Verified continuous typing, Chinese input, deletion, Undo/Redo, saving and recovery from invalid drafts."
-      ],
-      "zh-CN": [
-        "修复 Preamble 输入超过原文长度后，光标回退、文字顺序异常的问题。",
-        "验证连续输入、中文输入、删除、撤销重做、保存和无效草稿恢复。"
-      ]
-    }
-  });
+  assert.equal(manifest.schemaVersion, 1);
+  assert.equal(manifest.channel, "stable");
+  assert.match(manifest.version, /^\d+\.\d+\.\d+$/);
+  assert.equal(manifest.downloadUrl, "https://tylina.github.io/download/");
+  assert.equal(manifest.releaseNotesUrl,
+    `https://github.com/tylina/tylina-issues/releases/tag/v${manifest.version}`);
+  for (const language of ["en", "zh-CN"]) {
+    assert.ok(manifest.highlights[language].length > 0);
+    assert.ok(manifest.highlights[language].every((text) => typeof text === "string" && text.length > 0));
+  }
   assert.match(download, new RegExp(`Tylina ${manifest.version.replaceAll(".", "\\.")}`));
   assert.match(download, new RegExp(`releases/download/v${manifest.version.replaceAll(".", "\\.")}/`));
 });
