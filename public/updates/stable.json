@@ -1,17 +1,19 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "0.4.3",
+  "version": "0.4.5",
   "downloadUrl": "https://tylina.github.io/download/",
-  "releaseNotesUrl": "https://github.com/tylina/tylina-issues/releases/tag/v0.4.3",
+  "releaseNotesUrl": "https://github.com/tylina/tylina-issues/releases/tag/v0.4.5",
   "highlights": {
     "en": [
-      "Simpler Agent tools: use native file editing, with Tylina providing document selection, compilation and rendering.",
-      "Fixed current-document editing scope, completion verification and DSH synchronization after external edits."
+      "Text edit animations now follow nested paragraphs and multi-paragraph changes in Document and Slides.",
+      "Review Agent edits in History and choose the browser Agent harness independently of model and reasoning settings.",
+      "Linux keeps receiving external Agent edits after atomic saves and Undo."
     ],
     "zh-CN": [
-      "简化 Agent 工具：复用原生文件编辑能力，由 Tylina 提供文档选区、编译和渲染。",
-      "修复当前文档编辑范围、完成校验，以及 DSH 外部编辑后的文档同步。"
+      "嵌套正文与多段修改支持文字编辑动画，Document 与 Slides 自动定位修改页面。",
+      "恢复 Agent 修改的 History 审阅入口，并让浏览器 Agent harness 独立于模型和推理设置。",
+      "修复 Linux 原子保存与撤销后无法同步外部 Agent 编辑的问题。"
     ]
   }
 }
