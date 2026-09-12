@@ -13,7 +13,7 @@ test("keeps every public version label consistent with the release manifests", a
     const html = await built(path);
     // Recording captions identify the version actually filmed, not the current release.
     const currentCopy = html.replace(/<figcaption\b[^>]*>[\s\S]*?<\/figcaption>/g, "");
-    const labels = [...currentCopy.matchAll(/Tylina (\d+\.\d+\.\d+)/g)].map((match) => match[1]);
+    const labels = [...currentCopy.matchAll(/Tylina (\d+\.\d+\.\d+(?:-[\w-]+(?:\.[\w-]+)*)?)/g)].map((match) => match[1]);
     assert.ok(labels.length > 0, `${path} must display a version`);
     assert.ok(labels.every((version) => version === stable.version ||
       (path === "download/index.html" && version === web.version)), `${path}: stale version ${labels}`);
