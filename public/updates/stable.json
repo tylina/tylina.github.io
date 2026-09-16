@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "0.4.5",
+  "version": "0.15.0",
   "downloadUrl": "https://tylina.github.io/download/",
-  "releaseNotesUrl": "https://github.com/tylina/tylina-issues/releases/tag/v0.4.5",
+  "releaseNotesUrl": "https://github.com/tylina/tylina-issues/releases/tag/v0.15.0",
   "highlights": {
     "en": [
-      "Text edit animations now follow nested paragraphs and multi-paragraph changes in Document and Slides.",
-      "Review Agent edits in History and choose the browser Agent harness independently of model and reasoning settings.",
-      "Linux keeps receiving external Agent edits after atomic saves and Undo."
+      "Edit Typst directly in Document view with improved lenses, selection, navigation, IME, and preamble boundaries.",
+      "Use native Git review, citation workflows, richer imports, and editable PPTX export across supported hosts.",
+      "Work with a streamlined Pi Agent, shared Tylina Skills and tools, and unified Web, SDK, Native, and DSH releases."
     ],
     "zh-CN": [
-      "嵌套正文与多段修改支持文字编辑动画，Document 与 Slides 自动定位修改页面。",
-      "恢复 Agent 修改的 History 审阅入口，并让浏览器 Agent harness 独立于模型和推理设置。",
-      "修复 Linux 原子保存与撤销后无法同步外部 Agent 编辑的问题。"
+      "改进 Document 视图中的 Lens、选择、导航、输入法与 Preamble 边界，可直接编辑 Typst 文档。",
+      "加入 Native Git 审阅、文献工作流、更完整的文档导入，以及跨端可编辑 PPTX 导出。",
+      "统一 Web、SDK、Native 与 DSH 版本，并提供精简的 Pi Agent、共享 Skills 与工具。"
     ]
   }
 }
