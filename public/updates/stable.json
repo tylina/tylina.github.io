@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "0.15.0",
+  "version": "0.15.1",
   "downloadUrl": "https://tylina.github.io/download/",
-  "releaseNotesUrl": "https://github.com/tylina/tylina-issues/releases/tag/v0.15.0",
+  "releaseNotesUrl": "https://github.com/tylina/tylina-issues/releases/tag/v0.15.1",
   "highlights": {
     "en": [
-      "Edit Typst directly in Document view with improved lenses, selection, navigation, IME, and preamble boundaries.",
-      "Use native Git review, citation workflows, richer imports, and editable PPTX export across supported hosts.",
-      "Work with a streamlined Pi Agent, shared Tylina Skills and tools, and unified Web, SDK, Native, and DSH releases."
+      "Export editable PPTX reliably across Desktop, Web/WASM, SDK, Native, and DSH hosts.",
+      "Keep formulas as faithful vector content while preserving editable semantic text containers.",
+      "Use the refreshed core Skill collection from Web deployments or compatible host updates."
     ],
     "zh-CN": [
-      "改进 Document 视图中的 Lens、选择、导航、输入法与 Preamble 边界，可直接编辑 Typst 文档。",
-      "加入 Native Git 审阅、文献工作流、更完整的文档导入，以及跨端可编辑 PPTX 导出。",
-      "统一 Web、SDK、Native 与 DSH 版本，并提供精简的 Pi Agent、共享 Skills 与工具。"
+      "在桌面端、Web/WASM、SDK、Native 与 DSH 中可靠导出可编辑 PPTX。",
+      "公式保持高保真矢量内容，同时保留可编辑的语义文本容器。",
+      "Web 部署直接携带新版核心 Skills，兼容宿主也可独立更新。"
     ]
   }
 }
