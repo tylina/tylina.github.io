@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "version": "0.15.1",
-  "revision": "f5c369fe0502a519a844bc81eb2b024737be154c",
-  "tag": "web-f5c369fe0502",
-  "files": 1830,
-  "uncompressedBytes": 524373791,
+  "version": "0.15.2",
+  "revision": "39e6ba2fe8df29a76788694eed21dffedb78b9a8",
+  "tag": "web-39e6ba2fe8df",
+  "files": 1860,
+  "uncompressedBytes": 524549568,
   "archive": {
-    "url": "https://github.com/tylina/tylina-issues/releases/download/web-f5c369fe0502/tylina-web.tar.gz",
-    "bytes": 352513036,
-    "sha256": "bb7ce43a49526dc0e00ec7b5111d37b84b52c7c153054d0ab21de5acb826f1c7"
+    "url": "https://github.com/tylina/tylina-issues/releases/download/web-39e6ba2fe8df/tylina-web.tar.gz",
+    "bytes": 352574590,
+    "sha256": "be67df987f0f13dd640be277959adbb03c567ba9fd7497ecdc10bc4bd8ea050e"
   }
 }

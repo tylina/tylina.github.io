@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
   "channel": "stable",
-  "version": "0.15.1",
+  "version": "0.15.2",
   "downloadUrl": "https://tylina.github.io/download/",
-  "releaseNotesUrl": "https://github.com/tylina/tylina-issues/releases/tag/v0.15.1",
+  "releaseNotesUrl": "https://github.com/tylina/tylina-issues/releases/tag/v0.15.2",
   "highlights": {
     "en": [
-      "Export editable PPTX reliably across Desktop, Web/WASM, SDK, Native, and DSH hosts.",
-      "Keep formulas as faithful vector content while preserving editable semantic text containers.",
-      "Use the refreshed core Skill collection from Web deployments or compatible host updates."
+      "Keep an explicitly selected Agent model until you choose its replacement.",
+      "Review file edits in dedicated change cards while active Agent work stays visible.",
+      "Use the expanded verified Skill collection across Desktop, Web, SDK, Native, and DSH."
     ],
     "zh-CN": [
-      "在桌面端、Web/WASM、SDK、Native 与 DSH 中可靠导出可编辑 PPTX。",
-      "公式保持高保真矢量内容，同时保留可编辑的语义文本容器。",
-      "Web 部署直接携带新版核心 Skills，兼容宿主也可独立更新。"
+      "保持用户明确选择的 Agent 模型，直到用户自行选择替代模型。",
+      "文件编辑使用独立变更卡片审阅，同时保持正在运行的 Agent 工作可见。",
+      "在桌面端、Web、SDK、Native 与 DSH 中使用扩展并验证过的 Skill 集合。"
     ]
   }
 }
